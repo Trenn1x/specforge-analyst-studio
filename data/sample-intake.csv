@@ -1,0 +1,9 @@
+feature_id,feature_name,business_domain,business_value,urgency,implementation_effort,risk_level,stakeholders,entities,acceptance_focus
+SF-001,Order Exception Routing,Operations,9,8,5,6,Operations Lead;Customer Support,order_exception;routing_rule,critical order issues are routed in under 2 minutes
+SF-002,Inventory Reconciliation Dashboard,Supply Chain,8,9,6,7,Supply Planner;Plant Analyst,inventory_snapshot;reconciliation_event,inventory variances are visible daily with root-cause tags
+SF-003,Customer Credit Hold Automation,Finance,7,7,4,5,Finance Controller;Sales Ops,credit_hold;customer_account,credit hold decisions are consistent and auditable
+SF-004,Quality Defect Trend Analyzer,Quality,8,6,6,8,Quality Manager;Plant Supervisor,defect_event;inspection_result,defect recurrence is detected before weekly operations review
+SF-005,Partner SLA Monitoring,Sales,6,8,3,4,Account Manager;Service Desk,sla_contract;service_ticket,sla breaches are escalated automatically
+SF-006,Production Downtime Classification,Operations,9,9,7,9,Manufacturing Engineering;Operations Lead,downtime_event;line_state,downtime causes are classified within 15 minutes
+SF-007,Automated Invoice Match Queue,Finance,7,7,5,6,AP Team;Finance Controller,invoice_match;purchase_order,invoice mismatches are queued with reason codes
+SF-008,Shipment ETA Confidence Scoring,Supply Chain,8,6,6,7,Logistics Coordinator;Customer Support,shipment_event;carrier_signal,eta confidence reflects live movement variance

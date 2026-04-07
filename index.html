@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SpecForge Studio | Analyst-to-Delivery Accelerator</title>
+  <meta name="description" content="SpecForge Studio converts business requirements into delivery-ready outputs: prioritized backlog, SQL scaffolds, test matrix, and release checklist." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="noise"></div>
+  <header class="hero shell">
+    <div class="hero-copy">
+      <p class="eyebrow">Open-Source Product</p>
+      <h1>SpecForge Studio</h1>
+      <p class="lead">
+        Turn raw requirement intake into delivery-ready artifacts in one pass.
+        Prioritize features, generate implementation scaffolds, and publish handoff-ready outputs.
+      </p>
+      <div class="chips">
+        <span>Business Analysis</span>
+        <span>SQL-Aware</span>
+        <span>SDLC Delivery</span>
+        <span>Zero Backend</span>
+      </div>
+    </div>
+    <aside class="hero-card">
+      <h2>What You Get</h2>
+      <ul>
+        <li>Priority-ranked backlog with transparent scoring logic</li>
+        <li>Entity-driven SQL starter schemas</li>
+        <li>Acceptance-focused test matrix</li>
+        <li>Release readiness checklist and exportable brief</li>
+      </ul>
+      <p class="mono">Time to first brief: under 3 minutes.</p>
+    </aside>
+  </header>
+
+  <main class="shell layout">
+    <section class="panel panel-input">
+      <h2>1) Load Feature Intake</h2>
+      <p>Paste requirement rows or upload CSV from intake trackers.</p>
+      <div class="actions">
+        <button id="loadSampleBtn" class="btn">Load Sample Intake</button>
+        <label class="btn btn-outline" for="fileInput">Upload CSV</label>
+        <input id="fileInput" type="file" accept=".csv" hidden />
+        <button id="analyzeBtn" class="btn btn-accent">Build Delivery Plan</button>
+      </div>
+      <details>
+        <summary>Expected CSV Columns</summary>
+        <code>feature_id,feature_name,business_domain,business_value,urgency,implementation_effort,risk_level,stakeholders,entities,acceptance_focus</code>
+      </details>
+      <textarea id="rawCsv" spellcheck="false" aria-label="CSV Input"></textarea>
+    </section>
+
+    <section class="panel panel-metrics">
+      <h2>2) Portfolio Snapshot</h2>
+      <div class="metrics-grid">
+        <article>
+          <h3>Delivery Readiness</h3>
+          <p id="deliveryReadiness" class="metric">--</p>
+        </article>
+        <article>
+          <h3>Implement Now</h3>
+          <p id="implementNow" class="metric">--</p>
+        </article>
+        <article>
+          <h3>High-Risk Items</h3>
+          <p id="highRisk" class="metric">--</p>
+        </article>
+        <article>
+          <h3>Average Effort</h3>
+          <p id="avgEffort" class="metric">--</p>
+        </article>
+      </div>
+      <div class="bar-wrap"><div id="deliveryBar" class="bar"></div></div>
+      <p id="snapshotText" class="snapshot">Run analysis to generate a delivery snapshot.</p>
+    </section>
+
+    <section class="panel panel-table">
+      <h2>3) Prioritized Backlog</h2>
+      <div class="table-wrap">
+        <table id="roadmapTable">
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>Domain</th>
+              <th>Priority</th>
+              <th>Lane</th>
+              <th>Risk</th>
+              <th>Owner Group</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td colspan="6" class="empty">No analysis yet.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="panel panel-artifacts">
+      <h2>4) Delivery Artifacts</h2>
+      <div class="tabs" role="tablist" aria-label="Artifacts">
+        <button class="tab is-active" data-tab="stories" role="tab" aria-selected="true">User Stories</button>
+        <button class="tab" data-tab="schemas" role="tab" aria-selected="false">SQL Scaffolds</button>
+        <button class="tab" data-tab="tests" role="tab" aria-selected="false">Test Matrix</button>
+        <button class="tab" data-tab="release" role="tab" aria-selected="false">Release Checklist</button>
+      </div>
+      <div class="artifact-pane" id="storiesPane"></div>
+      <div class="artifact-pane hidden" id="schemasPane"></div>
+      <div class="artifact-pane hidden" id="testsPane"></div>
+      <div class="artifact-pane hidden" id="releasePane"></div>
+      <div class="actions">
+        <button id="exportBriefBtn" class="btn btn-outline">Export Brief (Markdown)</button>
+        <button id="exportBacklogBtn" class="btn btn-outline">Export Backlog CSV</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="shell">
+    <p>SpecForge Studio is a browser-native accelerator for turning requirement intake into implementation-ready delivery artifacts.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
