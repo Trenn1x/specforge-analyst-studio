@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lowcountry Piano Visit Planner</title>
+  <meta name="description" content="A clearer first note before the visit — piano history, service goals, access details, and a clean brief for Jeremy.">
+  <meta property="og:title" content="Lowcountry Piano Visit Planner">
+  <meta property="og:description" content="A clearer first note before the visit.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://lowcountry-piano-visit-planner.tverd23.chatgpt.site/og.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="Lowcountry Piano Visit Planner home"><span class="keys"><i></i><i></i><i></i></span><span><strong>Lowcountry Piano</strong><small>Visit planner</small></span></a>
+    <div class="top-meta"><span>Independent concept · Charleston, SC</span><a href="#planner">Plan a visit</a></div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div><p class="eyebrow">Before the tuning lever comes out</p><h1>A clearer first note<br><em>before the visit.</em></h1></div>
+      <p>Describe the piano, what changed, and what a useful visit looks like. Get a practical starting lane and a concise brief for Jeremy—without pretending the piano has already been assessed.</p>
+    </section>
+
+    <section class="planner" id="planner">
+      <form class="form-side" id="visit-form">
+        <div class="section-title"><span>01</span><div><h2>Start with the piano</h2><p>Choose the closest description. Nothing here diagnoses the instrument.</p></div></div>
+
+        <fieldset class="goal-block">
+          <legend>What brought you here?</legend>
+          <div class="goal-grid" id="goal-grid">
+            <button type="button" data-goal="routine">Routine care</button>
+            <button type="button" data-goal="off">Noticeably out of tune</button>
+            <button type="button" data-goal="touch">Touch, tone, or a sticky key</button>
+            <button type="button" data-goal="several">Several or deeper issues</button>
+            <button type="button" data-goal="evaluation">Condition evaluation</button>
+            <button type="button" data-goal="selection">Choosing a piano</button>
+            <button type="button" data-goal="unsure">Not sure yet</button>
+          </div>
+        </fieldset>
+
+        <div class="fields two">
+          <label>Piano type<select name="pianoType"><option value="">Choose one</option><option>Upright / vertical</option><option>Grand / baby grand</option><option>Player piano</option><option>Not sure</option></select></label>
+          <label>Make / model, if known<input name="model" placeholder="e.g. Yamaha U1, family heirloom…"></label>
+          <label>Last professional service<select name="lastService"><option value="">Choose one</option><option>Within 6 months</option><option>6–18 months ago</option><option>About 2–4 years ago</option><option>More than 4 years ago</option><option>Unknown / never</option></select></label>
+          <label>Moved recently?<select name="moved"><option value="">Choose one</option><option>No recent move</option><option>Within the past month</option><option>1–6 months ago</option><option>More than 6 months ago</option><option>Not sure</option></select></label>
+        </div>
+
+        <fieldset class="symptom-block"><legend>What are you noticing?</legend><div class="tags" id="symptoms"><button type="button">Out of tune</button><button type="button">Sticky or slow key</button><button type="button">Uneven touch</button><button type="button">Buzz or rattle</button><button type="button">Pedal issue</button><button type="button">Broken string</button><button type="button">General condition question</button><button type="button">Nothing specific</button></div></fieldset>
+
+        <div class="divider"><span>02</span><b>Outcome + timing</b></div>
+        <div class="fields two">
+          <label class="wide">What would make the visit useful?<textarea name="outcome" placeholder="Stable tuning, address a sticky key, understand priorities…"></textarea></label>
+          <label>Preferred timing<input name="timing" placeholder="Flexible, next month…"></label>
+          <label>Performance / recording date<input name="performanceDate" placeholder="None, Sept. 20…"></label>
+          <label>Room / humidity context<select name="humidity"><option value="">Choose one</option><option>Climate controlled and stable</option><option>Noticeable seasonal swings</option><option>Near exterior doors or windows</option><option>Humidity system installed</option><option>Not sure</option></select></label>
+        </div>
+
+        <div class="divider"><span>03</span><b>Access + handoff</b></div>
+        <div class="fields three">
+          <label>Space around piano<select name="access"><option value="">Choose one</option><option>Clear working space</option><option>Piano is partly blocked</option><option>Piano may need moving</option><option>Not sure</option></select></label>
+          <label>Gate / pass procedure?<select name="gate"><option value="">Choose one</option><option>Yes</option><option>No</option><option>Not sure</option></select></label>
+          <label>Stairs on access route?<select name="stairs"><option value="">Choose one</option><option>Yes</option><option>No</option><option>Not sure</option></select></label>
+          <label>City / ZIP<input name="location" placeholder="West Ashley, 29407…"></label>
+          <label>Your name<input name="name" placeholder="Name for the brief"></label>
+          <label>Anything else?<textarea name="notes" placeholder="History, room concerns, questions…"></textarea></label>
+        </div>
+      </form>
+
+      <aside class="result-side" aria-live="polite">
+        <div class="result-top"><span>Likely conversation lane</span><span id="readiness">0/6 useful details</span></div>
+        <div class="meter"><i id="meter-fill"></i></div>
+        <h2 id="lane-name">Deluxe conversation</h2>
+        <p class="lane-short" id="lane-short">A broad starting point when the piano needs a more balanced visit or the history is unclear.</p>
+        <div class="price"><span id="lane-price">Published reference: $350</span><a href="https://www.lowcountrypianoservices.com/services" target="_blank" rel="noreferrer">Verify on service page ↗</a></div>
+        <div class="why"><small>Why it surfaced</small><ul id="lane-why"><li>There is not enough detail for a narrower lane yet.</li></ul></div>
+        <div class="confirm"><strong>Jeremy confirms the fit.</strong><p>This is a planning lane, not a binding service choice. The piano still needs a professional look.</p></div>
+        <div class="summary"><div><span>Piano</span><b id="sum-piano">Not added</b></div><div><span>History</span><b id="sum-history">Not added</b></div><div><span>Issues</span><b id="sum-issues">None noted</b></div><div><span>Location</span><b id="sum-location">Not added</b></div></div>
+        <div class="actions"><button type="button" id="copy">Copy visit brief <span>↗</span></button><a id="email" href="#">Open in email <span>↗</span></a></div>
+        <div class="save"><button type="button" id="save">Save on this device</button><button type="button" id="reset">Start over</button></div>
+        <p class="fine">Published price references were observed August 23, 2026 and may change. This concept does not diagnose piano condition, confirm price or availability, book an appointment, guarantee repairs or tuning stability, or submit data anywhere.</p>
+      </aside>
+    </section>
+
+    <section class="outcomes">
+      <div class="outcome-head"><p class="eyebrow">One cleaner handoff</p><h2>Prepared enough to be useful.<br><em>Open enough for a technician.</em></h2></div>
+      <div class="cards"><article><span>01</span><h3>A service conversation lane</h3><p>Grounded in the published service descriptions, with the final choice left to Jeremy.</p></article><article><span>02</span><h3>An access-ready visit</h3><p>Working space, gates, stairs, location, and timing are visible before the day arrives.</p></article><article><span>03</span><h3>A concise piano history</h3><p>Service timing, recent moves, symptoms, goals, and room context in one brief.</p></article></div>
+    </section>
+
+    <section class="prep">
+      <div class="prep-copy"><p class="eyebrow">What the brief makes</p><h2>Useful details,<br><em>not a pretend diagnosis.</em></h2><p>Your answers create a practical photo checklist and questions worth bringing to the first conversation.</p><div class="list"><h3>Bring or photograph</h3><ul id="photo-list"></ul></div><div class="list"><h3>Questions for Jeremy</h3><ul id="question-list"></ul></div></div>
+      <figure><img src="https://lowcountry-piano-visit-planner.tverd23.chatgpt.site/piano-service-table.png" alt="An upright piano opened for service beside a restrained technician’s kit"><figcaption>Instrument first. <em>Details close behind.</em></figcaption></figure>
+    </section>
+  </main>
+
+  <footer><div class="foot-brand"><span class="keys"><i></i><i></i><i></i></span>Lowcountry Piano Visit Planner</div><p>Independent concept by Tom Verdier · Not an official Lowcountry Piano Services product</p><a href="https://www.lowcountrypianoservices.com/contact" target="_blank" rel="noreferrer">Official contact ↗</a></footer>
+  <script src="app.js"></script>
+</body>
+</html>
