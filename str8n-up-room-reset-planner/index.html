@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#1d2421">
+    <meta
+      name="description"
+      content="A room-reset planning concept for STR8N UP Professional Organizing Services in Charleston, South Carolina."
+    >
+    <title>STR8N UP Room Reset Planner</title>
+    <link rel="stylesheet" href="./styles.css">
+    <script src="./app.js" defer></script>
+  </head>
+  <body>
+    <main>
+      <header class="site-header" id="top">
+        <a class="brand" href="#top" aria-label="STR8N UP Room Reset Planner home">
+          <span class="brand-block" aria-hidden="true">S</span>
+          <span><strong>STR8N UP</strong><small>Room Reset Planner</small></span>
+        </a>
+        <div class="header-actions">
+          <span>Independent concept</span>
+          <a href="tel:+18436966960">Call Jennifer</a>
+        </div>
+      </header>
+
+      <section class="app-intro">
+        <div>
+          <p class="eyebrow">Charleston · Professional organizing</p>
+          <h1>Start smaller.<br><em>Get somewhere.</em></h1>
+        </div>
+        <div class="intro-card">
+          <span>Room Reset / 01</span>
+          <p>Turn “I need to get organized” into one room, one clear outcome, and one useful first conversation.</p>
+          <div><strong id="intro-progress">0/4</strong><small>sections ready</small></div>
+        </div>
+      </section>
+
+      <section class="planner">
+        <div class="question-column">
+          <section class="question-card">
+            <div class="question-heading">
+              <span>01</span>
+              <div><p>Choose the lane</p><h2>What’s happening?</h2></div>
+            </div>
+            <div class="situation-grid" id="situation-options"></div>
+            <label for="space">
+              <span>Which space needs attention first?</span>
+              <select id="space" data-input="space">
+                <option value="">Choose one room or category</option>
+                <option>Kitchen / pantry</option>
+                <option>Closet / bedroom</option>
+                <option>Home office</option>
+                <option>Garage / storage</option>
+                <option>Paper / digital</option>
+                <option>Whole home / move</option>
+                <option>Something else</option>
+              </select>
+            </label>
+          </section>
+
+          <section class="question-card">
+            <div class="question-heading">
+              <span>02</span>
+              <div><p>Define “better”</p><h2>What would success look like?</h2></div>
+            </div>
+            <label for="outcome">
+              <span>Complete this sentence: “After this reset, I want…”</span>
+              <textarea id="outcome" data-input="outcome" rows="3" placeholder="…to find what I need without moving three other things first."></textarea>
+            </label>
+            <label for="obstacle">
+              <span>What keeps getting in the way?</span>
+              <textarea id="obstacle" data-input="obstacle" rows="3" placeholder="Too many decisions, nowhere for things to go, not enough time…"></textarea>
+            </label>
+          </section>
+
+          <section class="question-card">
+            <div class="question-heading">
+              <span>03</span>
+              <div><p>Work with real capacity</p><h2>How much can you sustain?</h2></div>
+            </div>
+            <div class="choice-grid" id="focus-options"></div>
+            <div class="field-grid two">
+              <label for="urgency">
+                <span>How soon?</span>
+                <select id="urgency" data-input="urgency">
+                  <option value="">Choose urgency</option>
+                  <option>This week</option>
+                  <option>Within a month</option>
+                  <option>Before a move or event</option>
+                  <option>Planning ahead</option>
+                </select>
+              </label>
+              <label for="notes">
+                <span>Anything else?</span>
+                <input id="notes" data-input="notes" placeholder="Kids, pets, access, timing…">
+              </label>
+            </div>
+          </section>
+
+          <section class="question-card">
+            <div class="question-heading">
+              <span>04</span>
+              <div><p>Pick a starting format</p><h2>How should help happen?</h2></div>
+            </div>
+            <div class="format-grid" id="format-options"></div>
+            <label for="location">
+              <span>Neighborhood or ZIP</span>
+              <input id="location" data-input="location" placeholder="Example: Daniel Island or 29492">
+            </label>
+            <p class="location-note">In-person package eligibility and travel are confirmed directly. Virtual organizing can work beyond the local service area.</p>
+          </section>
+        </div>
+
+        <aside class="result-column" aria-live="polite">
+          <div class="result-sticky">
+            <div class="result-topline">
+              <span>Your reset brief</span>
+              <i id="readiness">4 left</i>
+            </div>
+            <p class="result-kicker">Possible service lane</p>
+            <h2 id="service-lane">Residential organizing</h2>
+            <p class="result-copy" id="result-copy">Answer the four small sections and this brief will sharpen as you go.</p>
+
+            <div class="summary-list">
+              <div><span>Space</span><strong id="summary-space">—</strong></div>
+              <div><span>Outcome</span><strong id="summary-outcome">—</strong></div>
+              <div><span>Capacity</span><strong id="summary-focus">—</strong></div>
+              <div><span>Format</span><strong id="summary-format">—</strong></div>
+            </div>
+
+            <div class="starter-plan">
+              <div class="subhead"><span>Starter plan</span><small>Before buying bins</small></div>
+              <ol id="starter-steps"></ol>
+            </div>
+
+            <div class="photo-prep">
+              <button type="button" aria-expanded="true">
+                <span>Photo prep checklist</span><small id="photo-count">3 useful views</small>
+              </button>
+              <ul id="photo-list"></ul>
+            </div>
+
+            <div class="result-actions">
+              <button type="button" class="primary" id="copy-summary">Copy reset brief <span>↗</span></button>
+              <a class="secondary" id="email-summary" href="mailto:jennifer@str8nup.org">Email STR8N UP <span>→</span></a>
+            </div>
+            <div class="utility-row">
+              <button type="button" id="save-plan">Save for later</button>
+              <button type="button" id="reset-plan">Start over</button>
+            </div>
+            <p class="disclaimer">This tool suggests a conversation lane; it does not diagnose, confirm scope, guarantee availability, or calculate pricing.</p>
+          </div>
+        </aside>
+      </section>
+
+      <section class="why-section">
+        <div>
+          <p class="eyebrow">The useful middle</p>
+          <h2>Not a quiz.<br>Not a quote.<br><em>A better first call.</em></h2>
+        </div>
+        <div class="why-grid">
+          <article><span>01</span><h3>Reduce the overwhelm</h3><p>Choose one room and one outcome before trying to solve the entire house.</p></article>
+          <article><span>02</span><h3>Respect real capacity</h3><p>Plan around how long a client can actually sustain focused decisions.</p></article>
+          <article><span>03</span><h3>Prepare useful context</h3><p>Bring Jennifer a concise brief and the right photos instead of a vague starting point.</p></article>
+        </div>
+      </section>
+
+      <section class="mobile-section">
+        <div>
+          <p class="eyebrow">Where this could go</p>
+          <h2>A room-by-room<br><em>project companion.</em></h2>
+        </div>
+        <div class="feature-stack">
+          <span>Private before / after photos</span>
+          <span>Session tasks</span>
+          <span>Donation &amp; consignment log</span>
+          <span>Maintenance reminders</span>
+          <span>Virtual coaching check-ins</span>
+        </div>
+      </section>
+
+      <section class="contact-band">
+        <div><p>Need a professional read?</p><h2>Talk with Jennifer.</h2></div>
+        <div>
+          <a href="mailto:jennifer@str8nup.org">jennifer@str8nup.org <span>↗</span></a>
+          <a href="tel:+18436966960">(843) 696-6960 <span>↗</span></a>
+        </div>
+      </section>
+
+      <footer>
+        <p>Independent product concept created for STR8N UP Professional Organizing Services. Not commissioned or operated by the business.</p>
+        <a href="#top">Back to top ↑</a>
+      </footer>
+
+      <div class="toast" id="toast" role="status" hidden></div>
+    </main>
+  </body>
+</html>
