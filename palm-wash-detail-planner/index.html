@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="A concept mobile-detail estimate and intake planner for Palm Wash in Charleston, SC." />
+    <meta name="theme-color" content="#092d33" />
+    <title>Palm Wash Detail Planner</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main>
+      <header class="site-header">
+        <a class="brand" href="#top" aria-label="Palm Wash Detail Planner home">
+          <span class="brand-mark" aria-hidden="true">PW</span>
+          <span><strong>Palm Wash</strong><small>Detail Planner · concept</small></span>
+        </a>
+        <a class="quiet-link" href="https://www.palmwash.com/" target="_blank" rel="noreferrer">Palm Wash website ↗</a>
+      </header>
+
+      <section class="intro" id="top">
+        <div><p class="kicker">A cleaner way to start a mobile detail</p><h1>Build your detail plan in under a minute.</h1></div>
+        <p class="intro-copy">Pick your vehicle and care level, flag the mess that matters, and leave with a clean summary for the Palm Wash team.</p>
+      </section>
+
+      <div class="planner-shell">
+        <section class="planner" aria-label="Detail plan builder">
+          <div class="step-heading"><span>01</span><div><h2>What are we cleaning?</h2><p>Choose the closest vehicle type.</p></div></div>
+          <div class="vehicle-grid" id="vehicle-grid"></div>
+          <div class="divider"></div>
+
+          <div class="step-heading"><span>02</span><div><h2>Choose the reset</h2><p>Both options cover a full interior and exterior detail.</p></div></div>
+          <div class="package-grid" id="package-grid"></div>
+          <div class="divider"></div>
+
+          <div class="step-heading"><span>03</span><div><h2>What should the crew expect?</h2><p>These notes do not change the estimate; they help scope the job.</p></div></div>
+          <div class="condition-grid" id="condition-grid"></div>
+          <div class="divider"></div>
+
+          <div class="step-heading"><span>04</span><div><h2>When and where?</h2><p>A starting preference is enough for this demo.</p></div></div>
+          <div class="field-grid">
+            <label>Preferred window
+              <select id="preference"><option>Weekday morning</option><option>Weekday afternoon</option><option>Saturday morning</option><option>Saturday afternoon</option><option>Flexible</option></select>
+            </label>
+            <label>Service area
+              <select id="location"><option>West Ashley</option><option>Downtown Charleston</option><option>James Island</option><option>Mount Pleasant</option><option>Elsewhere nearby</option></select>
+            </label>
+          </div>
+        </section>
+
+        <aside class="estimate-card" aria-live="polite">
+          <p class="estimate-label">Published starting estimate</p>
+          <div class="price-row"><strong id="estimate-price">$375</strong><span>+</span></div>
+          <p class="estimate-note" id="estimate-note">Sunrise · Sedan</p>
+          <div class="summary-list">
+            <div><span>Care level</span><b id="summary-care">Maintenance refresh</b></div>
+            <div><span>Condition flags</span><b id="summary-flags">None</b></div>
+            <div><span>Preferred window</span><b id="summary-preference">Weekday morning</b></div>
+            <div><span>Area</span><b id="summary-location">West Ashley</b></div>
+          </div>
+          <p class="disclaimer">Concept estimate based on public starting prices. Palm Wash confirms availability, scope, and final pricing.</p>
+          <button class="primary-button" id="copy-summary">Copy booking summary</button>
+          <div class="secondary-actions"><button id="save-plan">Save locally</button><button id="share-plan">Copy link</button></div>
+          <div class="status" id="status" role="status"></div>
+          <div class="direct-contact"><span>Ready to confirm?</span><a href="tel:+18437799811">Call 843.779.9811</a><a href="mailto:PalmWashDetailing@gmail.com">Email Palm Wash</a></div>
+        </aside>
+      </div>
+
+      <section class="next-build">
+        <p class="kicker">Natural next build</p><h2>From estimator to a lightweight field app.</h2>
+        <div class="next-grid">
+          <article><span>01</span><h3>Qualified requests</h3><p>Structured customer details instead of back-and-forth intake.</p></article>
+          <article><span>02</span><h3>Crew dayboard</h3><p>A simple mobile route, status, notes, and before/after photo flow.</p></article>
+          <article><span>03</span><h3>Maintenance reminders</h3><p>Make repeat-service timing easy for customers and the team.</p></article>
+        </div>
+      </section>
+
+      <footer>
+        <p>Independent concept demo for Palm Wash Mobile Detailing. Not commissioned or operated by Palm Wash.</p>
+        <p>Pricing source: <a href="https://www.palmwash.com/" target="_blank" rel="noreferrer">PalmWash.com</a>, accessed August 2026.</p>
+      </footer>
+    </main>
+    <script src="./app.js" defer></script>
+  </body>
+</html>
