@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#2c1831">
+    <meta name="description" content="Compose a marquee phrase, plan the setup, and create a useful event quote brief for Shine Bright Marquee.">
+    <meta property="og:title" content="Shine Bright Phrase &amp; Party Builder">
+    <meta property="og:description" content="Say it in lights. Plan it in minutes.">
+    <title>Shine Bright Phrase &amp; Party Builder</title>
+    <link rel="stylesheet" href="./styles.css">
+    <script src="./app.js" defer></script>
+  </head>
+  <body>
+    <main>
+      <header class="site-header" id="top">
+        <a class="brand" href="#top" aria-label="Shine Bright Phrase and Party Builder home">
+          <span class="brand-mark">SB</span>
+          <span><strong>SHINE BRIGHT</strong><small>Phrase &amp; Party Builder</small></span>
+        </a>
+        <div class="header-meta"><span>Independent concept</span><a href="tel:+18435769465">Call Shine Bright</a></div>
+      </header>
+
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Mount Pleasant · Charleston · The Lowcountry</p>
+          <h1>Say it in lights.<br><em>Plan it in minutes.</em></h1>
+          <p>Build a marquee phrase, collect the details that matter at setup, and walk into the quote conversation with a real plan.</p>
+          <div class="hero-stats"><span><b>3 ft</b> published letter height</span><span><b>$50</b> per letter / number</span><span><b>$125</b> delivery + pickup</span></div>
+        </div>
+        <div class="marquee-stage glow-warm-white" id="marquee-stage" aria-label="Marquee preview: Your phrase">
+          <div class="stage-top"><span>LIVE PHRASE MOCKUP</span><i id="piece-count">0 pieces</i></div>
+          <div class="marquee-phrase" id="marquee-phrase"></div>
+          <div class="stage-floor"></div>
+          <p id="layout-note">A compact display that should read cleanly as one focal point.</p>
+        </div>
+      </section>
+
+      <section class="builder">
+        <div class="builder-form">
+          <section class="step-card">
+            <div class="step-heading"><span>01</span><div><p>Compose the moment</p><h2>What should it say?</h2></div></div>
+            <label for="phrase"><span>Letters and numbers only · up to 18 characters</span><input class="phrase-input" id="phrase" data-input="phrase" placeholder="CHEERS" maxlength="18"></label>
+            <div class="example-row" id="example-row"></div>
+            <div class="service-grid" id="service-grid"></div>
+          </section>
+
+          <section class="step-card">
+            <div class="step-heading"><span>02</span><div><p>Anchor the event</p><h2>Where is the glow going?</h2></div></div>
+            <div class="field-grid two">
+              <label for="event-type"><span>Event type</span><select id="event-type" data-input="eventType"><option value="">Choose one</option><option>Birthday</option><option>Wedding / engagement</option><option>Baby / bridal shower</option><option>Graduation</option><option>Corporate / grand opening</option><option>Holiday event</option><option>Something else</option></select></label>
+              <label for="event-date"><span>Event date</span><input id="event-date" data-input="eventDate" type="date"></label>
+            </div>
+            <label for="location"><span>Venue name, neighborhood, or address</span><input id="location" data-input="location" placeholder="Example: Mount Pleasant backyard or venue name"></label>
+            <div class="choice-grid" id="setting-grid"></div>
+          </section>
+
+          <section class="step-card">
+            <div class="step-heading"><span>03</span><div><p>Make setup easy</p><h2>What will the team walk into?</h2></div></div>
+            <div class="field-grid two">
+              <label for="surface"><span>Display surface</span><select id="surface" data-input="surface"><option value="">Choose surface</option><option>Hard, level floor</option><option>Grass / soft ground</option><option>Stage / platform</option><option>Not sure yet</option></select></label>
+              <label for="power"><span>Power nearby?</span><select id="power" data-input="power"><option value="">Choose one</option><option>Outlet within 10 feet</option><option>Outlet farther away</option><option>No nearby outlet</option><option>Not sure</option></select></label>
+              <label for="access"><span>Delivery access</span><select id="access" data-input="access"><option value="">Choose access</option><option>Easy ground-floor access</option><option>Stairs / tight path</option><option>Loading dock / venue rules</option><option>Not sure yet</option></select></label>
+              <label for="install-window"><span>Install window</span><input id="install-window" data-input="installWindow" placeholder="Example: venue access 2–4 pm"></label>
+            </div>
+          </section>
+
+          <section class="step-card">
+            <div class="step-heading"><span>04</span><div><p>Choose the feeling</p><h2>What kind of glow?</h2></div></div>
+            <div class="glow-grid" id="glow-grid"></div>
+            <div class="field-grid two">
+              <label for="contact-name"><span>Your name</span><input id="contact-name" data-input="contactName" placeholder="Who should Heather ask for?"></label>
+              <label for="notes"><span>Notes, colors, décor, or venue rules</span><input id="notes" data-input="notes" placeholder="Balloon palette, theme, insurance rules…"></label>
+            </div>
+          </section>
+        </div>
+
+        <aside class="result-column" aria-live="polite">
+          <div class="result-card">
+            <div class="result-progress"><span>YOUR PARTY BRIEF</span><i id="progress">4 sections left</i></div>
+            <p class="result-label">Published base subtotal</p>
+            <h2 id="subtotal">Add a phrase</h2>
+            <p class="formula" id="formula">Uses Shine Bright’s published marquee pricing.</p>
+            <div class="brief-list">
+              <div><span>Phrase</span><strong id="brief-phrase">—</strong></div>
+              <div><span>Service</span><strong id="brief-service">Marquee letters only</strong></div>
+              <div><span>Event</span><strong id="brief-event">—</strong></div>
+              <div><span>Place</span><strong id="brief-place">—</strong></div>
+              <div><span>Glow</span><strong id="brief-glow">Warm white</strong></div>
+            </div>
+            <div class="setup-check"><div><span>Setup check</span><small id="flag-count">1 note</small></div><ul id="flag-list"></ul></div>
+            <div class="result-actions"><button type="button" id="copy-brief">Copy party brief <span>↗</span></button><a id="email-brief" href="mailto:hello@shinebrightmarquee.com">Email Shine Bright <span>→</span></a></div>
+            <div class="utility"><button type="button" id="save-plan">Save on this device</button><button type="button" id="reset-plan">Start over</button></div>
+            <p class="disclaimer">This is a planning estimate, not a quote. Inventory, availability, placement, delivery area, venue requirements, add-ons, taxes, and final pricing must be confirmed by Shine Bright Marquee.</p>
+          </div>
+        </aside>
+      </section>
+
+      <section class="why">
+        <div><p class="eyebrow">A better first conversation</p><h2>Less “what do you need?”<br><em>More “here’s the plan.”</em></h2></div>
+        <div class="why-grid"><article><span>01</span><h3>See the phrase</h3><p>Try the actual wording before asking whether the pieces and date are available.</p></article><article><span>02</span><h3>Price the base</h3><p>Use the published letter and delivery rates without pretending custom work is already quoted.</p></article><article><span>03</span><h3>Flag setup early</h3><p>Surface, power, access, venue timing, and weather are ready for the real conversation.</p></article></div>
+      </section>
+
+      <section class="mobile-path"><div><p class="eyebrow">A useful mobile sequel</p><h2>The whole setup<br><em>in one pocket.</em></h2></div><div class="feature-list"><span>AR placement preview</span><span>Live inventory &amp; date holds</span><span>Venue photo walkthrough</span><span>Delivery &amp; setup status</span><span>Client design approvals</span></div></section>
+      <section class="contact-band"><div><p>Have the bones of an idea?</p><h2>Let Heather light it up.</h2></div><div><a href="mailto:hello@shinebrightmarquee.com">hello@shinebrightmarquee.com <span>↗</span></a><a href="tel:+18435769465">(843) 576-9465 <span>↗</span></a></div></section>
+      <footer><p>Independent product concept created for Shine Bright Marquee. Not commissioned or operated by the business.</p><a href="#top">Back to top ↑</a></footer>
+      <div class="toast" id="toast" role="status" hidden></div>
+    </main>
+  </body>
+</html>
