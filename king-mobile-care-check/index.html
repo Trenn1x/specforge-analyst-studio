@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Organize your location, vehicle, service need, and timing into a clear request for mobile auto service." />
+    <meta property="og:title" content="King Mobile Care Check" />
+    <meta property="og:description" content="A clearer start for mobile auto service." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://trenn1x.github.io/specforge-analyst-studio/king-mobile-care-check/og.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#0b1018" />
+    <title>King Mobile Care Check | Mobile Service Request</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main>
+      <header class="site-header">
+        <a class="brand" href="#top" aria-label="King Mobile Care Check home">
+          <span class="brand-mark" aria-hidden="true">K</span>
+          <span><strong>King Mobile</strong><small>Care Check</small></span>
+        </a>
+        <div class="header-actions">
+          <span class="concept-pill">Independent concept</span>
+          <a class="phone-link" href="tel:+18432420242">Call (843) 242-0242</a>
+        </div>
+      </header>
+
+      <section class="hero" id="top">
+        <div class="hero-copy">
+          <p class="eyebrow"><span></span> Mobile auto service · Summerville, SC</p>
+          <h1>Before the call,<br /><em>get the facts straight.</em></h1>
+          <p class="hero-lede">Turn a car problem into a clear service request in about two minutes. No diagnosis, no guesswork—just the details a mobile mechanic needs first.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#request-builder">Start a care check <span>↓</span></a>
+            <a class="text-link" href="#how-it-works">See how it works</a>
+          </div>
+        </div>
+        <div class="hero-panel" aria-label="Care Check overview">
+          <div class="panel-topline"><span>CARE CHECK / 01</span><span class="live-dot">2 min</span></div>
+          <div class="roadline" aria-hidden="true"><span></span><i></i><span></span></div>
+          <p class="panel-kicker">A clearer first look</p>
+          <h2>Location. Vehicle.<br />Issue. Urgency.</h2>
+          <div class="panel-stats">
+            <div><strong>5</strong><span>quick sections</span></div>
+            <div><strong>1</strong><span>clean summary</span></div>
+          </div>
+          <p class="panel-note">Service fit, schedule, and price are always confirmed by King Mobile Automotive.</p>
+        </div>
+      </section>
+
+      <section class="workflow" id="request-builder">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow"><span></span> Build your request</p>
+            <h2>Give the mechanic a useful starting point.</h2>
+          </div>
+          <div class="progress-copy"><strong id="progress-count">0/5</strong><span>sections ready</span></div>
+        </div>
+        <div class="progress-track" aria-label="0 of 5 sections complete"><span id="progress-bar"></span></div>
+
+        <div class="builder-grid">
+          <form class="care-form" id="care-form">
+            <fieldset class="form-card">
+              <legend><span>01</span> Where is the vehicle?</legend>
+              <label class="field-label" for="location">Street, city, or ZIP</label>
+              <input id="location" name="location" placeholder="Example: 29483 or downtown Summerville" autocomplete="street-address" />
+              <div class="choice-row coverage-row" role="group" aria-label="Service area">
+                <button type="button" class="choice" data-field="coverage" data-value="Within 25 miles of Summerville">Within 25 miles of Summerville</button>
+                <button type="button" class="choice" data-field="coverage" data-value="Outside / not sure">Outside / not sure</button>
+              </div>
+            </fieldset>
+
+            <fieldset class="form-card">
+              <legend><span>02</span> What are we working with?</legend>
+              <div class="vehicle-grid">
+                <label><span class="field-label">Year</span><input id="year" name="year" placeholder="2018" inputmode="numeric" /></label>
+                <label><span class="field-label">Make</span><input id="make" name="make" placeholder="Honda" /></label>
+                <label><span class="field-label">Model</span><input id="model" name="model" placeholder="Accord" /></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="form-card">
+              <legend><span>03</span> What kind of help?</legend>
+              <div class="service-grid">
+                <button type="button" class="service-choice" data-field="service" data-value="No-start / battery"><span>No-start / battery</span><small>Battery, jump start, or a vehicle that will not start</small></button>
+                <button type="button" class="service-choice" data-field="service" data-value="Brakes"><span>Brakes</span><small>Pads, rotors, inspection, or a new brake concern</small></button>
+                <button type="button" class="service-choice" data-field="service" data-value="Oil / maintenance"><span>Oil / maintenance</span><small>Oil change, tune-up, or routine maintenance</small></button>
+                <button type="button" class="service-choice" data-field="service" data-value="Tires / wheels"><span>Tires / wheels</span><small>Flat, rotation, replacement, or tire concern</small></button>
+                <button type="button" class="service-choice" data-field="service" data-value="Warning light / diagnostics"><span>Warning light / diagnostics</span><small>Engine code, electrical fault, or unknown issue</small></button>
+                <button type="button" class="service-choice" data-field="service" data-value="Engine / suspension"><span>Engine / suspension</span><small>Leak, performance, repair, or suspension work</small></button>
+                <button type="button" class="service-choice" data-field="service" data-value="Something else"><span>Something else</span><small>Describe what is happening in your own words</small></button>
+              </div>
+              <label class="details-label" for="details"><span class="field-label">Anything else the mechanic should know?</span><textarea id="details" name="details" rows="4" placeholder="What happened, sounds you heard, warning lights, or anything already tried…"></textarea></label>
+            </fieldset>
+
+            <fieldset class="form-card">
+              <legend><span>04</span> Can the vehicle move safely?</legend>
+              <div class="choice-row">
+                <button type="button" class="choice" data-field="drivable" data-value="Yes">Yes</button>
+                <button type="button" class="choice" data-field="drivable" data-value="No — it may be unsafe">No — it may be unsafe</button>
+                <button type="button" class="choice" data-field="drivable" data-value="Not sure">Not sure</button>
+              </div>
+              <p class="safety-note">If anyone is in danger or the vehicle is in an unsafe roadway position, call 911 or roadside assistance first.</p>
+            </fieldset>
+
+            <fieldset class="form-card">
+              <legend><span>05</span> When do you need help?</legend>
+              <div class="split-fields">
+                <label><span class="field-label">Urgency</span><select id="urgency" name="urgency"><option value="">Choose one</option><option>Stranded now</option><option>Today, if possible</option><option>Within 2–3 days</option><option>Flexible</option></select></label>
+                <label><span class="field-label">Best time</span><select id="timing" name="timing"><option value="">Choose one</option><option>Morning</option><option>Afternoon</option><option>Evening</option><option>Any time</option></select></label>
+              </div>
+            </fieldset>
+          </form>
+
+          <aside class="request-result" aria-live="polite">
+            <div class="result-sticky">
+              <div class="result-status"><span class="status-light" id="status-light"></span><span id="status-copy">5 sections left</span></div>
+              <h2 id="result-title">Your request is taking shape</h2>
+              <p id="result-copy">Finish the five quick sections to create a clean request for the mechanic.</p>
+              <div class="summary-card">
+                <div><span>Location</span><strong id="summary-location">—</strong></div>
+                <div><span>Vehicle</span><strong id="summary-vehicle">—</strong></div>
+                <div><span>Service</span><strong id="summary-service">—</strong></div>
+                <div><span>Drivable</span><strong id="summary-drivable">—</strong></div>
+                <div><span>Timing</span><strong id="summary-timing">—</strong></div>
+              </div>
+              <div class="result-actions">
+                <button class="button button-primary" type="button" id="copy-request">Copy request</button>
+                <a class="button button-secondary muted" id="email-request" href="mailto:kingmobileautomotive@gmail.com">Email King Mobile</a>
+              </div>
+              <div class="utility-row"><button type="button" id="save-request">Save for later</button><button type="button" id="reset-request">Start over</button></div>
+              <p class="fine-print">This tool organizes your notes. It does not diagnose a vehicle or confirm service, availability, or price.</p>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="how" id="how-it-works">
+        <div class="section-heading compact"><div><p class="eyebrow"><span></span> Why it helps</p><h2>Less phone tag. Better first questions.</h2></div></div>
+        <div class="how-grid">
+          <article><span>01</span><h3>Customer intake</h3><p>Capture the facts that determine where, when, and what kind of help may be needed.</p></article>
+          <article><span>02</span><h3>Cleaner handoff</h3><p>Send one readable summary instead of rebuilding the whole story on a callback.</p></article>
+          <article><span>03</span><h3>Room to grow</h3><p>Add dispatch, job status, photo notes, and service reminders in a finished mobile app.</p></article>
+        </div>
+      </section>
+
+      <section class="contact-strip">
+        <div><p class="eyebrow"><span></span> Prefer to talk?</p><h2>King Mobile Automotive</h2><p>Mobile automotive service within 25 miles of Summerville, South Carolina.</p></div>
+        <div class="contact-actions"><a href="tel:+18432420242">(843) 242-0242 <span>↗</span></a><a href="mailto:kingmobileautomotive@gmail.com">kingmobileautomotive@gmail.com <span>↗</span></a></div>
+      </section>
+
+      <footer><p>Independent product concept created for King Mobile Automotive. Not commissioned or operated by the business.</p><a href="#top">Back to top ↑</a></footer>
+      <div class="toast" id="toast" role="status" hidden></div>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>
