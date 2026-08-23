@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Wave Plan — Charleston Surf Session Planner</title>
+    <meta name="description" content="An independent participant and surf-session planning concept for Charleston Surf Company." />
+    <meta property="og:title" content="Wave Plan — Charleston Surf Session Planner" />
+    <meta property="og:description" content="Get the group on the same wave before the first surf-session conversation." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://charleston-surf-wave-plan.tverd23.chatgpt.site/og.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <main>
+      <header class="topbar">
+        <a class="brand" href="#top" aria-label="Wave Plan home"><span class="brand-mark">W</span><span>Wave Plan</span></a>
+        <nav aria-label="Page sections"><a href="#people">People</a><a href="#brief">Brief</a></nav>
+        <span class="concept-pill">Independent concept</span>
+      </header>
+
+      <section class="intro" id="top">
+        <div><p class="eyebrow">Charleston surf session planner</p><h1>Get the group on the same wave.</h1></div>
+        <p>Organize the people, goals, and logistics before asking Charleston Surf Company what kind of session makes sense.</p>
+      </section>
+
+      <section class="workspace" aria-label="Surf session planning workspace">
+        <div class="panel planner-panel">
+          <div class="panel-head">
+            <div><p class="kicker">01 · Session</p><h2>Shape the question</h2></div>
+            <span class="progress" id="group-count">3 people</span>
+          </div>
+
+          <fieldset>
+            <legend>What are you exploring?</legend>
+            <div class="activity-grid" id="activity-grid">
+              <button class="selected" type="button" data-activity="Surf lesson"><span>Surf lesson</span><small>Private, public, or group</small></button>
+              <button type="button" data-activity="eFoil lesson"><span>eFoil lesson</span><small>Electric foil coaching</small></button>
+              <button type="button" data-activity="Surf camp question"><span>Surf camp question</span><small>Ask about the right camp</small></button>
+              <button type="button" data-activity="Personal training"><span>Personal training</span><small>Land or water goals</small></button>
+              <button type="button" data-activity="Not sure yet"><span>Not sure yet</span><small>Let Shep route it</small></button>
+            </div>
+          </fieldset>
+
+          <div class="field-grid three">
+            <label><span>Preferred location</span><select id="location"><option>Folly Beach</option><option>Kiawah Island</option><option>Flexible</option></select></label>
+            <label><span>Preferred date</span><input id="date" type="date" /></label>
+            <label><span>Date flexibility</span><select id="date-flex"><option>That date matters</option><option selected>A few days of flexibility</option><option>Any time that week</option><option>Timing is wide open</option></select></label>
+          </div>
+        </div>
+
+        <aside class="panel snapshot-panel">
+          <div class="wave-orbit" aria-hidden="true"><span id="orbit-count">3</span></div>
+          <p class="kicker">Live session snapshot</p>
+          <h2 id="lane">Public lesson conversation</h2>
+          <p class="snapshot-copy">A starting point for a real conversation—not a package recommendation or booking decision.</p>
+          <dl>
+            <div><dt>Activity</dt><dd id="snap-activity">Surf lesson</dd></div>
+            <div><dt>Place</dt><dd id="snap-location">Folly Beach</dd></div>
+            <div><dt>Date</dt><dd id="snap-date">No date chosen</dd></div>
+            <div><dt>Group</dt><dd id="snap-group">3 people</dd></div>
+          </dl>
+          <div class="question-card"><span>?</span><p><b id="question-title">4 questions to tighten up</b><small id="question-copy">What date or date window could work?</small></p></div>
+          <p class="boundary">No availability, ocean safety, conditions, equipment, eligibility, pricing, waiver, or booking is confirmed here.</p>
+        </aside>
+      </section>
+
+      <section class="people-section" id="people">
+        <div class="section-lead">
+          <div><p class="kicker">02 · People</p><h2>Plan for the actual humans.</h2></div>
+          <p>Age, experience, self-reported water comfort, and goals can vary inside one group. Keep those differences visible for the instructor.</p>
+        </div>
+        <div class="participant-grid" id="participants"></div>
+        <button class="add-person" id="add-person" type="button"><span>+</span><b>Add another person</b><small>Up to 12 in this planning brief</small></button>
+      </section>
+
+      <section class="brief-section" id="brief">
+        <div class="brief-form panel">
+          <p class="kicker">03 · Handoff</p>
+          <h2>Turn the loose details into one useful message.</h2>
+          <p class="form-intro">Add the reply details and anything the whole group has in common. Wave Plan keeps the questions visible instead of filling the gaps with guesses.</p>
+          <div class="field-grid two">
+            <label><span>Your name</span><input id="contact-name" placeholder="Name" /></label>
+            <label><span>Your email</span><input id="contact-email" type="email" placeholder="you@example.com" /></label>
+          </div>
+          <label><span>Group context</span><textarea id="group-note" rows="5" placeholder="Family trip, birthday, repeat lesson, scheduling constraint…"></textarea></label>
+          <div class="prep-list"><p>Helpful before sending</p><ul id="prep-list"></ul></div>
+        </div>
+
+        <div class="brief-output panel">
+          <div class="brief-output-head"><div><p class="kicker">Generated brief</p><h2>Ready to hand off</h2></div><span class="question-count" id="open-count">4 open</span></div>
+          <pre id="brief-output"></pre>
+          <div class="action-row"><button class="secondary-action" id="copy-brief" type="button">Copy brief</button><a class="primary-action" id="email-brief" href="#">Open email draft <span>↗</span></a></div>
+          <p class="mailto-note">Opens the device’s email app addressed to Charleston Surf Company. Nothing is submitted or booked by this planner.</p>
+        </div>
+      </section>
+
+      <footer>
+        <div><span class="brand-mark">W</span><p><b>Wave Plan</b><small>An independent product concept prepared for Charleston Surf Company.</small></p></div>
+        <p>Built to organize a better first conversation—not replace an instructor’s judgment.</p>
+      </footer>
+    </main>
+  </body>
+</html>
