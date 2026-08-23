@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Southern Pours — Pour Plan & Venue Fit</title>
+  <meta name="description" content="An independent event brief and mobile-bar venue-fit planner concept for Southern Pours.">
+  <meta property="og:title" content="Southern Pours — Pour Plan & Venue Fit">
+  <meta property="og:description" content="Shape the venue, guest, and pour details before the first mobile-bar conversation.">
+  <meta property="og:image" content="https://southern-pours-plan.tverd23.chatgpt.site/og.png">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="wordmark" href="#top"><span class="mark">PP</span><span>Pour Plan</span></a>
+    <nav aria-label="Planner sections"><a href="#fit">Fit</a><a href="#pour">Pour</a><a href="#handoff">Handoff</a></nav>
+    <span class="concept-tag">Independent concept</span>
+  </header>
+
+  <main id="top">
+    <section class="intro">
+      <div>
+        <p class="eyebrow">A clearer first event conversation</p>
+        <h1>Will the bar fit the party?</h1>
+        <p class="lede">Sketch the event, check the trailer footprint, and organize the details Southern Pours will need before anyone talks packages.</p>
+      </div>
+      <div class="steps" aria-label="Planner steps">
+        <a href="#fit" class="active"><b>01</b> Event + fit</a>
+        <a href="#pour"><b>02</b> Pour direction</a>
+        <a href="#handoff"><b>03</b> Clean handoff</a>
+      </div>
+    </section>
+
+    <div class="workspace">
+      <div class="planner">
+        <section class="panel" id="fit">
+          <div class="section-head"><div><p class="kicker">Step 01</p><h2>Event + venue fit</h2></div><span class="progress-pill" id="progressPill">14% shaped</span></div>
+          <div class="grid two">
+            <label><span>Event type</span><select id="eventType"><option>Wedding</option><option>Welcome party</option><option>Private party</option><option>Corporate event</option><option>Something else</option></select></label>
+            <label><span>Event date</span><input id="eventDate" type="date"></label>
+          </div>
+          <label><span>Venue or event address</span><input id="location" placeholder="Venue name, city, or address"></label>
+          <div class="grid split">
+            <label><span>Expected guests</span><div class="range-wrap"><input id="guests" type="range" min="10" max="250" step="5" value="80" aria-label="Expected guests"><output id="guestOutput">80</output></div></label>
+            <fieldset><legend>Venue allows an outside mobile bar?</legend><div class="segments" id="approvalButtons"><button type="button" data-value="Not confirmed" class="selected">Not sure</button><button type="button" data-value="Still checking">Checking</button><button type="button" data-value="Customer marked yes">Yes</button></div></fieldset>
+          </div>
+          <div class="measure-card">
+            <div><p class="kicker">Rough setup zone</p><h3>Trailer + working area</h3><p>Southern Pours publishes a rough 30 × 15 ft setup footprint. Add the available clear area as a conversation starter—not a site approval.</p></div>
+            <div class="measure-inputs"><label><span>Width</span><div><input id="setupWidth" inputmode="decimal" placeholder="30"><b>ft</b></div></label><i>×</i><label><span>Depth</span><div><input id="setupDepth" inputmode="decimal" placeholder="15"><b>ft</b></div></label></div>
+          </div>
+          <div class="grid two compact">
+            <label><span>Setup surface</span><select id="surface"><option value="">Choose one</option><option>Paved / hard surface</option><option>Grass or lawn</option><option>Gravel</option><option>Mixed / not sure</option></select></label>
+            <label><span>Arrival path, parking, gates, or turns</span><input id="accessNotes" placeholder="Anything Ian should know about access"></label>
+          </div>
+        </section>
+
+        <section class="panel" id="pour">
+          <div class="section-head wide"><div><p class="kicker">Step 02</p><h2>Shape the pour direction</h2></div><p>Public package names are used as conversation lanes—not recommendations, availability, or a quote.</p></div>
+          <fieldset><legend>Closest starting point</legend><div class="package-grid" id="packageOptions">
+            <button type="button" data-package="Help me choose" class="selected"><b>Help me choose</b><small>Start with the event, not a package.</small></button>
+            <button type="button" data-package="Lowcountry Classic"><b>Lowcountry Classic</b><small>Beer, wine, and sparkling as the conversation lane.</small></button>
+            <button type="button" data-package="Southern Signature"><b>Southern Signature</b><small>Explore a broader mixed-drink service.</small></button>
+            <button type="button" data-package="Grand Pour"><b>Grand Pour</b><small>Bring signature cocktails into the conversation.</small></button>
+          </div></fieldset>
+          <div class="pour-grid">
+            <fieldset><legend>What will guests gravitate toward?</legend><div class="pills" id="beverageOptions"><button type="button">Beer</button><button type="button">Wine</button><button type="button">Sparkling</button><button type="button">Cocktails</button><button type="button">Mocktails</button></div><p class="helper">Preference only. This planner does not calculate bottles or costs.</p></fieldset>
+            <div class="grid two">
+              <label><span>Desired service time</span><div class="unit"><input id="serviceHours" inputmode="numeric" value="4"><b>hours</b></div></label>
+              <label><span>Preferred retailer, if any</span><input id="retailer" placeholder="Leave blank if unsure"></label>
+            </div>
+          </div>
+          <label><span>Favorite drinks, signature-cocktail direction, and non-drinker needs</span><textarea id="drinkNotes" placeholder="Bourbon-forward, one bright citrus option, strong mocktail coverage..."></textarea></label>
+        </section>
+
+        <section class="panel" id="handoff">
+          <div class="section-head"><div><p class="kicker">Step 03</p><h2>Make the handoff useful</h2></div></div>
+          <label><span>Theme, colors, or overall feel</span><input id="theme" placeholder="Garden formal, oyster roast, warm neutrals..."></label>
+          <fieldset><legend>Visual extras to ask about</legend><div class="checks"><label><input id="photoWall" type="checkbox"><span><b>Photo wall</b><small>Explore the trailer back panel.</small></span></label><label><input id="lightUpSign" type="checkbox"><span><b>Light-up sign</b><small>Note interest; do not reserve décor.</small></span></label></div></fieldset>
+          <label><span>Anything else about the event or venue?</span><textarea id="eventNotes" placeholder="Timeline, planner, rain plan, venue contact, style references..."></textarea></label>
+          <div class="grid two"><label><span>Your name</span><input id="contactName" autocomplete="name" placeholder="Name"></label><label><span>Your email</span><input id="contactEmail" type="email" autocomplete="email" placeholder="you@example.com"></label></div>
+        </section>
+      </div>
+
+      <aside class="panel summary">
+        <img src="https://southern-pours-plan.tverd23.chatgpt.site/og.png" alt="Editorial concept of a mobile bar trailer and event floor plan">
+        <p class="kicker">Live handoff</p>
+        <div class="summary-title"><h2>A brief Ian can react to.</h2><span id="percent">14%</span></div>
+        <div class="fit-map"><em>30 ft published footprint</em><div><span>mobile bar</span><i></i></div><em>15 ft</em></div>
+        <div class="flags"><p><i id="permissionDot"></i><span><b>Venue permission</b><small id="permissionStatus">Needs a venue question</small></span></p><p><i></i><span><b>Setup area</b><small id="fitStatus">Measure the clear setup area</small></span></p><p><i id="guestDot" class="good"></i><span><b>Guest count</b><small id="guestStatus">80 guests as a starting point</small></span></p></div>
+        <div class="question-box"><span id="questionCount">8</span><p><b>questions still open</b><small id="firstQuestion">What date should Ian check?</small></p></div>
+        <pre id="brief" aria-label="Generated event brief"></pre>
+        <div class="actions"><button id="copyBrief" type="button">Copy clean brief</button><a id="emailDraft" href="mailto:SouthernPours@gmail.com">Open an email draft</a></div>
+        <p class="action-note" id="actionNote" role="status">The email button opens a draft in your mail app. It does not send anything.</p>
+      </aside>
+    </div>
+  </main>
+
+  <footer><p><b>Independent concept for Southern Pours.</b> Customer-entered details are unverified.</p><p>No date hold, venue approval, legal advice, alcohol calculation, staffing decision, quote, payment, contract, order, or booking is created here.</p></footer>
+  <script src="app.js"></script>
+</body>
+</html>
