@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CharlestonFrames Project Concierge</title>
+  <meta name="description" content="A better brief before the frame table — artwork, display context, design direction, and the useful questions in one place.">
+  <link rel="canonical" href="https://trenn1x.github.io/specforge-analyst-studio/charlestonframes-project-concierge/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="CharlestonFrames Project Concierge">
+  <meta property="og:description" content="A better brief before the frame table.">
+  <meta property="og:url" content="https://trenn1x.github.io/specforge-analyst-studio/charlestonframes-project-concierge/">
+  <meta property="og:image" content="https://charlestonframes-project-concierge.tverd23.chatgpt.site/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="CharlestonFrames Project Concierge">
+  <meta name="twitter:description" content="A better brief before the frame table.">
+  <meta name="twitter:image" content="https://charlestonframes-project-concierge.tverd23.chatgpt.site/og.png">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="topbar" id="top">
+    <a class="wordmark" href="#top" aria-label="CharlestonFrames Project Concierge home">
+      <span class="corner-mark" aria-hidden="true"></span>
+      <span>CharlestonFrames</span>
+      <em>Project Concierge</em>
+    </a>
+    <div class="topbar-meta">
+      <span>Independent product concept</span>
+      <a href="#how-it-works">How it helps</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="intro">
+      <div>
+        <p class="eyebrow">Before the frame table</p>
+        <h1>Bring the story.<br><i>And the useful details.</i></h1>
+      </div>
+      <p class="intro-copy">Turn rough measurements, room context, and design instincts into a brief a one-person framing shop can actually use.</p>
+    </section>
+
+    <section class="workbench" aria-label="Framing project planner">
+      <div class="intake-panel">
+        <div class="section-heading">
+          <div><span class="section-no">01</span><h2>Tell the piece’s story</h2></div>
+          <p>Approximate is useful. Ben can confirm what matters in person.</p>
+        </div>
+
+        <label class="field full-field">What do you need help with?
+          <select id="intent" data-field="intent">
+            <option>New framing quote</option>
+            <option>Drop-off prep</option>
+            <option>Pickup prep</option>
+            <option>Project update question</option>
+            <option>Video consultation</option>
+          </select>
+        </label>
+
+        <div class="field full-field">
+          <span class="label">What are we working with?</span>
+          <div class="choice-grid" id="artwork-choices">
+            <button class="choice" data-artwork="Photo or print" type="button">Photo or print <span>✓</span></button>
+            <button class="choice" data-artwork="Painting or canvas" type="button">Painting or canvas <span>✓</span></button>
+            <button class="choice" data-artwork="Textile or needlework" type="button">Textile or needlework <span>✓</span></button>
+            <button class="choice" data-artwork="Document or heirloom" type="button">Document or heirloom <span>✓</span></button>
+            <button class="choice" data-artwork="Object or memorabilia" type="button">Object or memorabilia <span>✓</span></button>
+            <button class="choice" data-artwork="Something else" type="button">Something else <span>✓</span></button>
+          </div>
+        </div>
+
+        <fieldset class="dimension-row">
+          <legend>Approximate outside dimensions <span>inches</span></legend>
+          <label>Width<input id="width" data-field="width" inputmode="decimal" placeholder="18"></label>
+          <span aria-hidden="true">×</span>
+          <label>Height<input id="height" data-field="height" inputmode="decimal" placeholder="24"></label>
+          <span aria-hidden="true">×</span>
+          <label>Depth<input id="depth" data-field="depth" inputmode="decimal" placeholder="0.5"></label>
+        </fieldset>
+
+        <div class="field full-field">
+          <span class="label">Anything Ben should know before seeing it?</span>
+          <div class="tag-list" id="condition-choices">
+            <button class="tag" data-condition="Valuable or sentimental" type="button">Valuable or sentimental</button>
+            <button class="tag" data-condition="Signed or numbered" type="button">Signed or numbered</button>
+            <button class="tag" data-condition="Brittle or aged" type="button">Brittle or aged</button>
+            <button class="tag" data-condition="Already mounted" type="button">Already mounted</button>
+            <button class="tag" data-condition="Has visible damage" type="button">Has visible damage</button>
+            <button class="tag" data-condition="Dimensional or unusual" type="button">Dimensional or unusual</button>
+            <button class="tag" data-condition="I’m not sure" type="button">I’m not sure</button>
+          </div>
+        </div>
+
+        <div class="divider"><span>02</span><b>Place + point of view</b></div>
+
+        <div class="form-grid">
+          <label class="field">Room or destination<input data-field="room" placeholder="Living room, gallery wall…"></label>
+          <label class="field">Wall color<input data-field="wallColor" placeholder="Warm white, navy…"></label>
+          <label class="field">Natural light<select data-field="light"><option value="">Choose one</option><option>Low / indirect</option><option>Some daylight</option><option>Bright or direct sun</option><option>Not sure</option></select></label>
+          <label class="field">Hanging surface<select data-field="surface"><option value="">Choose one</option><option>Drywall</option><option>Plaster</option><option>Brick or masonry</option><option>Wood paneling</option><option>Not sure</option></select></label>
+          <label class="field">Near moisture?<select data-field="moisture"><option value="">Choose one</option><option>No</option><option>Kitchen or bathroom</option><option>Coastal / humid room</option><option>Not sure</option></select></label>
+          <label class="field">When would you like it?<input data-field="timing" placeholder="Flexible, gift by Oct. 12…"></label>
+        </div>
+
+        <div class="field full-field style-field">
+          <span class="label">Which direction feels closest?</span>
+          <div class="style-list" id="style-choices">
+            <button class="style-choice" data-style="Let the artwork lead" type="button"><span class="radio"></span>Let the artwork lead</button>
+            <button class="style-choice" data-style="Quiet + minimal" type="button"><span class="radio"></span>Quiet + minimal</button>
+            <button class="style-choice" data-style="Warm + traditional" type="button"><span class="radio"></span>Warm + traditional</button>
+            <button class="style-choice" data-style="Bold + contemporary" type="button"><span class="radio"></span>Bold + contemporary</button>
+            <button class="style-choice" data-style="Shadow box / object display" type="button"><span class="radio"></span>Shadow box / object display</button>
+            <button class="style-choice active" data-style="Open to Ben’s guidance" type="button"><span class="radio"></span>Open to Ben’s guidance</button>
+          </div>
+        </div>
+
+        <div class="form-grid compact-grid">
+          <label class="field">Frame tone<input data-field="frameTone" placeholder="Walnut, black, open…"></label>
+          <label class="field">Mat preference<input data-field="matPreference" placeholder="No mat, layered, open…"></label>
+          <label class="field">Glazing priority<select data-field="glazingPriority"><option value="">Choose one</option><option>Clarity / low reflection</option><option>UV protection</option><option>Durability / low weight</option><option>Needs guidance</option></select></label>
+          <label class="field">Budget comfort<input data-field="budget" placeholder="Prefer to discuss, under…"></label>
+        </div>
+
+        <div class="form-grid final-fields">
+          <label class="field">Your name<input data-field="name" placeholder="Name for the brief"></label>
+          <label class="field notes-field">Anything else?<textarea data-field="notes" placeholder="What the piece means, a question, or anything unusual…"></textarea></label>
+        </div>
+      </div>
+
+      <aside class="brief-panel" aria-live="polite">
+        <div class="brief-topline"><span>Live project brief</span><span id="readiness-count">1/6 details</span></div>
+        <div class="readiness-track"><span id="readiness-bar"></span></div>
+        <p class="readiness-label" id="readiness-label">Start with the artwork</p>
+
+        <div class="art-card">
+          <span class="mat-layer one"></span><span class="mat-layer two"></span>
+          <div class="art-placeholder"><span id="art-preview-name">Your piece</span><small id="art-preview-size">add rough dimensions</small></div>
+        </div>
+
+        <div class="brief-summary">
+          <div><span>Request</span><strong id="summary-intent">New framing quote</strong></div>
+          <div><span>Artwork</span><strong id="summary-artwork">Choose a type</strong></div>
+          <div><span>Direction</span><strong id="summary-style">Open to Ben’s guidance</strong></div>
+          <div><span>Display</span><strong id="summary-room">Add a room</strong></div>
+        </div>
+
+        <div class="action-stack">
+          <button class="primary-button" id="copy-brief" type="button"><span>Copy clean brief</span><b>↗</b></button>
+          <a class="secondary-button" id="email-brief" href="mailto:eastboundben@gmail.com"><span>Open in email</span><b>↗</b></a>
+        </div>
+        <div class="save-row"><button id="save-brief" type="button">Save on this device</button><button id="reset-brief" type="button">Start over</button></div>
+
+        <div class="boundary-note">
+          <span>Human check built in</span>
+          <p>This organizes the handoff. It does not inspect artwork, recommend conservation treatment, quote a price, confirm materials, or reserve an appointment.</p>
+        </div>
+      </aside>
+    </section>
+
+    <section class="handoff-strip" id="how-it-works">
+      <p class="eyebrow">What this creates</p>
+      <div>
+        <article><span>01</span><h3>A sharper first look</h3><p>Artwork, measurements, display context, and priorities in one place.</p></article>
+        <article><span>02</span><h3>The right photos</h3><p>A tailored shot list for edges, signatures, damage, depth, and the room.</p></article>
+        <article><span>03</span><h3>Questions for a framer</h3><p>The decisions that still deserve Ben’s eye, materials, and judgment.</p></article>
+      </div>
+    </section>
+
+    <section class="table-section">
+      <div class="table-image-wrap">
+        <img src="https://charlestonframes-project-concierge.tverd23.chatgpt.site/project-before-after.png" alt="Artwork, mat board, frame corner samples, and measuring tools arranged on a custom framing worktable">
+        <span>A better brief before the frame table</span>
+      </div>
+      <div class="table-copy">
+        <p class="eyebrow">Prepared, not prescribed</p>
+        <h2>Let the details arrive.<br><i>Leave the decisions human.</i></h2>
+        <p class="table-lede">The tool adapts the handoff without pretending a screen can evaluate the art, choose conservation materials, or see what’s on the sample wall.</p>
+        <div class="checklist-block"><h3>Photos to have ready</h3><ul id="photo-list"></ul></div>
+        <div class="checklist-block human-list"><h3>Questions that stay with Ben</h3><ul id="question-list"></ul></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div><span class="corner-mark" aria-hidden="true"></span><strong>CharlestonFrames Project Concierge</strong></div>
+    <p>Independent demonstration concept by Tom Verdier. Not an official CharlestonFrames service.</p>
+    <a href="https://www.charlestonframes.com/" target="_blank" rel="noreferrer">Visit CharlestonFrames <span>↗</span></a>
+  </footer>
+</body>
+</html>
