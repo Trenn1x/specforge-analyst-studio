@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Landrum Table Fit Planner</title>
+  <meta name="description" content="A room-fit sketch and cleaner custom-table brief for Landrum Tables.">
+  <meta property="og:title" content="Landrum Table Fit Planner">
+  <meta property="og:description" content="Measure twice. Start the conversation once.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://landrum-table-fit-planner.tverd23.chatgpt.site/og.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#planner"><span class="joinery"><i></i><i></i><i></i></span><span><strong>Landrum Table Fit</strong><small>Independent planning concept</small></span></a>
+    <div class="top-meta"><span>Charleston, South Carolina</span><a href="#brief">What it makes</a></div>
+  </header>
+
+  <main>
+    <section class="intro"><div><p class="eyebrow">Measure twice. Start the conversation once.</p><h1>Will the table have<br><em>room to live?</em></h1></div><p>Test a size against the room, collect the choices that matter, and turn the loose details into one useful custom-table brief.</p></section>
+
+    <section class="planner" id="planner">
+      <form class="form-side" id="fit-form">
+        <div class="section-heading"><span>01</span><div><h2>Room + clearance</h2><p>Use finished wall-to-wall dimensions. This is a planning sketch, not a fit guarantee.</p></div></div>
+        <div class="fields four">
+          <label>Room length<input name="roomLength" type="number" min="1" step=".5" value="14"><small>feet</small></label>
+          <label>Room width<input name="roomWidth" type="number" min="1" step=".5" value="11"><small>feet</small></label>
+          <label>Table length<select name="tableLength"><option value="6">6 feet</option><option value="7" selected>7 feet</option><option value="8">8 feet</option><option value="9">9 feet</option><option value="10">10 feet</option><option value="11">11 feet</option><option value="12">12 feet</option></select></label>
+          <label>Table width<select name="tableWidth"><option>36</option><option>38</option><option>40</option><option>42</option><option>44</option><option>46</option><option>48</option></select></label>
+        </div>
+        <p class="source-note">The 6–12' and 36–48" controls follow published rectangular Cypress and Heart Pine examples. Other styles can differ.</p>
+
+        <label class="range"><span><b>Open clearance</b><output id="clearance-output">36&quot;</output></span><input name="clearance" type="range" min="30" max="48" step="2" value="36"><small>A rough planning zone for chairs and movement; real needs vary by room and use.</small></label>
+        <div class="split">
+          <label>Desired seats<select name="seats"><option>4</option><option selected>6</option><option>8</option><option>10</option><option>12</option><option>14</option></select><small>A goal only—base placement and chair widths change capacity.</small></label>
+          <div class="orientation"><span>Orientation</span><button type="button" id="orientation">Lengthwise <b>→</b></button></div>
+        </div>
+
+        <div class="divider"><span>02</span><b>Build direction</b></div>
+        <fieldset><legend>Closest base direction</legend><div class="choices" id="base-choices"><button type="button" class="active">Signature farm direction</button><button type="button">Stretcher base direction</button><button type="button">Trestle base direction</button><button type="button">Iron base direction</button><button type="button">Fully custom / not sure</button></div></fieldset>
+        <fieldset><legend>Wood direction</legend><div class="tags" id="wood-choices"><button type="button">Cypress direction</button><button type="button">Antique heart pine direction</button><button type="button">My own sentimental wood</button><button type="button" class="active">Not sure yet</button></div></fieldset>
+
+        <div class="fields three">
+          <label>Setting<select name="setting"><option>Indoor</option><option>Outdoor</option><option>Covered porch / unsure</option></select></label>
+          <label>Finish direction<select name="finish"><option>Natural / light direction</option><option>Warm medium direction</option><option>Dark direction</option><option>Match an existing piece</option><option>Not sure yet</option></select></label>
+          <label>Rug context<select name="rug"><option>No rug planned</option><option>Existing rug measured</option><option>Rug not measured yet</option><option>Still deciding</option></select></label>
+        </div>
+
+        <div class="divider"><span>03</span><b>Access + handoff</b></div>
+        <div class="fields two">
+          <label>Narrowest doorway<input name="doorway" type="number" min="0" placeholder="e.g. 34"><small>inches, if known</small></label>
+          <label>Stairs or tight turns?<select name="stairs"><option>Yes</option><option>No</option><option selected>Not sure</option></select></label>
+          <label>City / ZIP<input name="location" placeholder="North Charleston, 29405…"></label>
+          <label>Your name<input name="name" placeholder="Name for the brief"></label>
+          <label class="wide">What should Capers know?<textarea name="notes" placeholder="Existing chairs, room obstacles, sentimental wood history, timing…"></textarea></label>
+        </div>
+      </form>
+
+      <aside class="result-side" aria-live="polite">
+        <div class="result-kicker"><span>Room-fit sketch</span><span id="readiness">4/6 useful details</span></div><div class="meter"><i id="meter-fill"></i></div>
+        <div class="room-canvas good"><span class="room-size top" id="room-l-label">14'</span><span class="room-size side" id="room-w-label">11'</span><div class="clearance-zone" id="clearance-zone"></div><div class="table-shape" id="table-shape"><span id="table-label">7' × 36&quot;</span></div></div>
+        <p class="fit-status good" id="fit-status"><i></i>Clearance fits on paper</p>
+        <h2 id="fit-title">Clearance fits on paper</h2>
+        <p class="fit-copy" id="fit-copy">The sketch uses 36&quot; of open space around a 7' × 36&quot; starting point. Rotate it or adjust the room to compare.</p>
+        <div class="numbers"><div><span>Planned footprint</span><b id="footprint">13' × 9'</b></div><div><span>Length margin</span><b id="margin-l">12&quot;</b></div><div><span>Width margin</span><b id="margin-w">24&quot;</b></div></div>
+        <div class="honest"><strong>Capers still confirms the build.</strong><p>Chair widths, base placement, pathways, delivery access, wood, and construction details all need a human look.</p></div>
+        <div class="actions"><button type="button" id="copy">Copy planning brief <span>→</span></button><a href="#" id="email">Open in email <span>→</span></a></div>
+        <div class="save"><button type="button" id="save">Save on this device</button><button type="button" id="reset">Start over</button></div>
+        <p class="fine">Independent concept. It does not submit data, reserve wood, confirm price or lead time, place an order, approve delivery, assess structural suitability, or guarantee fit.</p>
+      </aside>
+    </section>
+
+    <section class="brief-section" id="brief"><div class="brief-heading"><p class="eyebrow">One cleaner custom conversation</p><h2>Measured enough to help.<br><em>Open enough for the maker.</em></h2></div><div class="brief-grid"><article><span>01</span><h3>A room-fit starting point</h3><p>Room, table, orientation, clearance, seating goal, and rug context in one visual sketch.</p></article><article><span>02</span><h3>A build direction</h3><p>Base, wood, setting, finish direction, and sentimental-material context without pretending inventory is known.</p></article><article><span>03</span><h3>An access-ready handoff</h3><p>Doorway, stairs, location, obstacles, and the photos that can make the first conversation useful.</p></article></div></section>
+
+    <section class="prep"><div class="prep-copy"><p class="eyebrow">Before a shop appointment</p><h2>Bring the room.<br><em>Bring the story.</em></h2><p>Landrum recommends making an appointment for its Charleston shop. The planner turns your room and project context into something useful to bring along.</p><div class="list"><h3>Photos worth taking</h3><ul id="photo-list"></ul></div><div class="list"><h3>Questions worth asking</h3><ul id="question-list"></ul></div></div><figure><img src="https://landrum-table-fit-planner.tverd23.chatgpt.site/table-room.png" alt="A solid-wood dining table with clear circulation space in a warm Lowcountry room"><figcaption>Built around the room. <em>Finished by the maker.</em></figcaption></figure></section>
+
+    <section class="source-strip"><p>Grounded in Landrum's published customization paths: size, wood, stain/finish direction, indoor or outdoor use, sentimental wood, and direct custom requests.</p><a href="https://landrumtables.com/collections/our-signature-tables" target="_blank" rel="noreferrer">See official table options →</a></section>
+  </main>
+
+  <footer><div class="foot-brand"><span class="joinery"><i></i><i></i><i></i></span>Landrum Table Fit Planner</div><p>Independent concept by Tom Verdier · Not an official Landrum Tables product</p><a href="https://landrumtables.com/pages/contact-us" target="_blank" rel="noreferrer">Official contact →</a></footer>
+  <script src="app.js"></script>
+</body>
+</html>
