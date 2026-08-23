@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ride Ready — E-Bike Repair Intake</title>
+    <meta name="description" content="An independent e-bike repair intake concept for Charleston E-Bike Repair & Conversions." />
+    <meta property="og:title" content="Ride Ready — E-Bike Repair Intake" />
+    <meta property="og:description" content="Give the bench a better starting point before the first e-bike repair conversation." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://charleston-ebike-ride-ready.tverd23.chatgpt.site/og.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <main id="top">
+      <header class="topbar">
+        <a class="brand" href="#top" aria-label="Ride Ready home"><span class="brand-badge">RR</span><span>Ride Ready</span></a>
+        <nav aria-label="Page sections"><a href="#systems">Systems</a><a href="#brief">Brief</a></nav>
+        <span class="concept-pill">Independent concept</span>
+      </header>
+
+      <section class="intro">
+        <div><p class="eyebrow">E-bike repair intake · Charleston, SC</p><h1>Give the bench a better starting point.</h1></div>
+        <p>Organize the bike, system, and symptoms before asking Charleston E-Bike Repair what kind of inspection makes sense.</p>
+      </section>
+
+      <section class="workspace" aria-label="E-bike repair intake workspace">
+        <div class="panel intake-panel">
+          <div class="panel-head"><div><p class="kicker">01 · Bike</p><h2>Start with what you know.</h2></div><span class="step-count">No tools required</span></div>
+          <fieldset><legend>What are you bringing into the conversation?</legend><div class="segmented" id="bike-kind"><button class="selected" type="button" data-value="E-bike">E-bike</button><button type="button" data-value="Standard bike">Standard bike</button><button type="button" data-value="Conversion idea">Conversion idea</button></div></fieldset>
+          <div class="field-grid three">
+            <label><span>Bike brand</span><input id="brand" placeholder="Aventon, Rad, Lectric…" /></label>
+            <label><span>Model or frame wording</span><input id="model" placeholder="Model, trim, or unknown" /></label>
+            <label><span>Approximate year</span><input id="year" placeholder="2022 or not sure" /></label>
+          </div>
+          <fieldset><legend>What brought you here?</legend><div class="focus-grid" id="focus-grid">
+            <button type="button" data-value="Won’t power on"><span>Won’t power on</span><small>No display or assist</small></button>
+            <button class="selected" type="button" data-value="Cuts out / loses assist"><span>Cuts out / loses assist</span><small>Intermittent behavior</small></button>
+            <button type="button" data-value="Battery or charger"><span>Battery or charger</span><small>Charging or range question</small></button>
+            <button type="button" data-value="Display or error code"><span>Display or error code</span><small>Code, warning, or control</small></button>
+            <button type="button" data-value="Brakes / gears / wheels"><span>Brakes / gears / wheels</span><small>Mechanical concern</small></button>
+            <button type="button" data-value="General tune-up"><span>General tune-up</span><small>Routine functional review</small></button>
+            <button type="button" data-value="Not sure yet"><span>Not sure yet</span><small>Let Don route it</small></button>
+          </div></fieldset>
+          <div class="field-grid two last-grid">
+            <label><span>Where did it come from?</span><select id="purchase-source"><option>Bought online</option><option>Local bike shop</option><option>Secondhand</option><option>Gift / inherited</option><option>Not sure</option></select></label>
+            <label><span>Transport starting point</span><select id="transport"><option>I can bring the whole bike</option><option>I need drop-off guidance</option><option>The bike is not easy to move</option><option>Not sure yet</option></select></label>
+          </div>
+        </div>
+
+        <aside class="panel snapshot-panel">
+          <div class="status-mark" aria-hidden="true"><span id="area-count">02</span></div><p class="kicker">Conversation starting point</p><h2 id="lane">Troubleshooting conversation</h2>
+          <p class="snapshot-copy">A way to organize the first message—not a diagnosis or final service-level decision.</p>
+          <dl><div><dt>Bike</dt><dd id="snap-bike">E-bike</dd></div><div><dt>Identity</dt><dd id="snap-identity">Not added</dd></div><div><dt>Main concern</dt><dd id="snap-focus">Cuts out / loses assist</dd></div><div><dt>Areas</dt><dd id="snap-areas">2 marked</dd></div><div><dt>Open</dt><dd id="snap-open">4 questions</dd></div></dl>
+          <div class="next-card"><span>Next useful detail</span><p id="next-question">What brand is printed on the bike?</p></div>
+          <p class="boundary">No diagnosis, ride-safety decision, battery transport advice, compatibility check, quote, appointment, or repair promise is made here.</p>
+        </aside>
+      </section>
+
+      <section class="systems-section" id="systems">
+        <div class="section-lead"><div><p class="kicker">02 · Systems</p><h2>Mark the area. Describe the behavior.</h2></div><p>Choose anything that seems relevant. You do not need to remove a cover, disconnect a battery, or decide what failed.</p></div>
+        <div class="system-grid" id="system-grid"></div>
+        <div class="diagnostic-grid">
+          <div class="panel detail-panel">
+            <div class="panel-head compact-head"><div><p class="kicker">Behavior</p><h3>What happens?</h3></div></div>
+            <div class="field-grid three">
+              <label><span>Power / assist behavior</span><select id="power-behavior"><option>Powers on, then cuts out</option><option>No power or display</option><option>Display on, no assist</option><option>Powers on normally</option><option>Mechanical issue only</option><option>Not applicable / unsure</option></select></label>
+              <label><span>When it started</span><select id="started"><option>Today</option><option selected>Within the last week</option><option>Within the last month</option><option>Longer than a month ago</option><option>Not sure</option></select></label>
+              <label><span>Error code or exact display text</span><input id="error-code" placeholder="For example: E07—or none" /></label>
+            </div>
+            <label><span>Describe what you see, hear, or feel</span><textarea id="symptoms" rows="5" placeholder="What happens, when it happens, whether it is consistent, and anything visible—without testing it again for this form."></textarea></label>
+            <fieldset class="recent-fieldset"><legend>Did it start around any of these?</legend><div class="chip-grid" id="recent-grid"></div></fieldset>
+            <label><span>Anything already tried?</span><textarea id="attempted" rows="3" placeholder="Charging, restart, shop visit, part replacement—or nothing yet."></textarea></label>
+          </div>
+          <aside class="safety-panel"><span class="safety-flag">Important</span><h3>Do not test it again just to complete this form.</h3><p>If there is smoke, fire, unusual heat, leaking, swelling, severe damage, or another active concern, stop here and contact Don directly. Ride Ready cannot tell you whether a battery is safe to handle or transport.</p><a href="mailto:don@charlestonEbikerepair.com?subject=Immediate%20e-bike%20question">Email Don directly <span>↗</span></a></aside>
+        </div>
+      </section>
+
+      <section class="brief-section" id="brief">
+        <div class="brief-form panel">
+          <p class="kicker">03 · Handoff</p><h2>Package the useful details.</h2><p class="form-intro">This is a conversation brief, not a work order. Don still decides what should be inspected, how the bike should travel, and what service path fits.</p>
+          <div class="field-grid two"><label><span>Your name</span><input id="contact-name" placeholder="Name" /></label><label><span>Your email</span><input id="contact-email" type="email" placeholder="you@example.com" /></label></div>
+          <label><span>Phone, if useful</span><input id="contact-phone" type="tel" placeholder="Optional" /></label>
+          <label><span>What outcome are you hoping for?</span><textarea id="goal" rows="4" placeholder="Reliable commuting, a working bike again, conversion feasibility, routine service…"></textarea></label>
+          <div class="photo-list"><div><p>Photo checklist</p><span id="photo-count">0/4 ready</span></div><div id="photo-items"></div><small>Only photograph labels and parts already visible without disassembly.</small></div>
+        </div>
+        <div class="brief-output panel">
+          <div class="brief-output-head"><div><p class="kicker">Generated brief</p><h2>Ready for Don’s judgment</h2></div><span class="open-count" id="open-count">4 open</span></div>
+          <pre id="brief-output"></pre>
+          <div class="action-row"><button class="secondary-action" id="copy-brief" type="button">Copy brief</button><a class="primary-action" id="email-brief" href="#">Open email draft <span>↗</span></a></div>
+          <p class="mailto-note">Opens the device’s email app addressed to Charleston E-Bike Repair. This planner submits nothing and creates no appointment.</p>
+        </div>
+      </section>
+
+      <footer><div><span class="brand-badge">RR</span><p><b>Ride Ready</b><small>An independent product concept prepared for Charleston E-Bike Repair & Conversions.</small></p></div><p>Built to improve the first repair conversation—not replace a technician’s inspection.</p></footer>
+    </main>
+  </body>
+</html>
