@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bloom Map — Wedding Floral Brief Builder</title>
+  <meta name="description" content="Map wedding floral spaces, priorities, and logistics into a thoughtful consultation brief.">
+  <meta property="og:title" content="Bloom Map — Wedding Floral Brief Builder">
+  <meta property="og:description" content="Plan the spaces before the stems, then share one thoughtful consultation brief.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://trenn1x.github.io/specforge-analyst-studio/charleston-florist-bloom-map/">
+  <meta property="og:image" content="https://charleston-florist-bloom-map.tverd23.chatgpt.site/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Bloom Map — Wedding Floral Brief Builder">
+  <meta name="twitter:description" content="Plan the spaces before the stems, then share one thoughtful consultation brief.">
+  <meta name="twitter:image" content="https://charleston-florist-bloom-map.tverd23.chatgpt.site/og.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app-shell" id="top">
+    <header class="topbar">
+      <a class="wordmark" href="#top" aria-label="Bloom Map home"><span aria-hidden="true">✦</span> Bloom Map</a>
+      <div class="top-actions"><button class="link-button" id="reset" type="button">Start over</button><span class="concept-badge">Independent concept · not a booking tool</span></div>
+    </header>
+
+    <section class="intro">
+      <div><p class="eyebrow">Wedding floral brief builder</p><h1>Plan the spaces<br>before the stems.</h1></div>
+      <p>Turn the moving pieces of a wedding into one thoughtful starting brief for a real floral consultation.</p>
+    </section>
+
+    <div class="workspace">
+      <nav class="rail" aria-label="Planner sections">
+        <p class="rail-label">Your map</p>
+        <a href="#event"><span>01</span> Event</a><a href="#palette"><span>02</span> Palette</a><a href="#spaces"><span>03</span> Floral spaces</a><a href="#logistics"><span>04</span> Logistics</a><a href="#send"><span>05</span> Brief</a>
+        <div class="rail-progress"><div><span>Map ready</span><strong id="progress-count">2/4</strong></div><i><b id="progress-bar"></b></i><small>Rough details are completely fine.</small></div>
+      </nav>
+
+      <div class="canvas">
+        <section class="planner-section" id="event">
+          <div class="section-heading"><div><p class="step">01 · The day</p><h2>Give the vision a place to land.</h2></div><p>Start with what you know. The real date, scope, and venue details still belong in a conversation with the florist.</p></div>
+          <div class="field-grid">
+            <label class="field wide"><span>Couple / project name</span><input id="couple" placeholder="Alex & Jordan"></label>
+            <label class="field"><span>Wedding date</span><input id="date" type="date"></label>
+            <label class="field"><span>Guest count · rough is fine</span><input id="guests" inputmode="numeric" placeholder="125"></label>
+            <label class="field wide"><span>Venue / neighborhood</span><input id="venue" placeholder="Venue name, Charleston area"></label>
+            <label class="field"><span>Your email</span><input id="email" type="email" placeholder="you@example.com"></label>
+            <label class="field"><span>Planner / day-of contact</span><input id="planner" placeholder="Name or team, if known"></label>
+          </div>
+        </section>
+
+        <section class="planner-section" id="palette">
+          <div class="section-heading compact"><div><p class="step">02 · Design direction</p><h2>Set the mood, not the recipe.</h2></div><p>A palette and a few honest preferences make a useful starting point without pretending exact stems are available.</p></div>
+          <div class="palette-list" id="palette-list"></div>
+          <div class="choice-grid">
+            <label class="select-field"><span>Style direction</span><select id="style"><option>Garden-inspired</option><option>Classic & romantic</option><option>Modern & minimal</option><option>Lush & dramatic</option><option>Coastal & textural</option><option>Still exploring</option></select></label>
+            <label class="select-field"><span>Budget approach</span><select id="budget"><option>Still deciding</option><option>Prioritize a few key moments</option><option>Balance across the full day</option><option>Explore a statement design</option></select></label>
+            <label class="note-field"><span>Flowers, textures, or details you love</span><textarea id="love" placeholder="Loose movement, local texture, a family flower…"></textarea></label>
+            <label class="note-field"><span>Anything you definitely want to avoid</span><textarea id="avoid" placeholder="Colors, shapes, scents, or design notes…"></textarea></label>
+          </div>
+        </section>
+
+        <section class="planner-section" id="spaces">
+          <div class="section-heading compact"><div><p class="step">03 · Floral spaces</p><h2>Map what matters most.</h2></div><p>Switch on the areas you want to discuss, add rough counts, and separate must-haves from possibilities.</p></div>
+          <div class="zone-summary"><div><strong id="zone-total">3</strong><span>areas in the brief</span></div><p>Counts are prompts for a consultation—not stem, recipe, or labor calculations.</p></div>
+          <div id="zone-groups"></div>
+        </section>
+
+        <section class="planner-section" id="logistics">
+          <div class="section-heading compact"><div><p class="step">04 · Venue & handoff</p><h2>Catch the details that become day-of questions.</h2></div><p>These notes help the florist spot the conversations still needed with you, your planner, and the venue.</p></div>
+          <div class="choice-grid">
+            <label class="select-field"><span>Delivery / loading access</span><select id="access"><option value="">Still open</option><option>Street-level / straightforward</option><option>Loading area available</option><option>Stairs or elevator involved</option><option>Venue rules need confirmation</option></select></label>
+            <label class="select-field"><span>Setup window</span><select id="setup"><option value="">Still open</option><option>Under 90 minutes</option><option>90 minutes–3 hours</option><option>More than 3 hours</option><option>Venue timeline not confirmed</option></select></label>
+            <label class="select-field"><span>Breakdown / pickup</span><select id="breakdown"><option>Need guidance</option><option>Venue or planner handling</option><option>Florist breakdown to discuss</option><option>End-of-night pickup to discuss</option></select></label>
+            <label class="note-field"><span>Repurposing plan</span><textarea id="repurpose-notes" placeholder="Example: move arch flowers behind the sweetheart table…"></textarea></label>
+            <label class="note-field full"><span>Other access, timing, candle, vessel, or venue notes</span><textarea id="logistics-notes" placeholder="What should the florist and venue work through together?"></textarea></label>
+          </div>
+          <div class="checklist-card"><div><p class="step">Photo & reference checklist</p><h3>Bring the room into the conversation.</h3></div><div id="photo-list"></div></div>
+          <label class="note-field open-question"><span>One more question or idea to carry into the consultation</span><textarea id="open-notes" placeholder="Is there a meaningful family piece we could design around?"></textarea></label>
+        </section>
+
+        <section class="planner-section final-section" id="send">
+          <div class="section-heading compact"><div><p class="step">05 · Ready for a human look</p><h2>Share a clean first brief.</h2></div><p>The final design, scope, flower plan, price, schedule, and venue logistics stay with Charleston Florist.</p></div>
+          <div class="final-actions"><button id="copy" type="button">Copy consultation brief</button><a id="email-link" href="#">Open in email <span>↗</span></a></div>
+          <div class="guardrail"><span>✦</span><p><strong>What this does not do:</strong> identify flowers, confirm seasonal inventory, calculate exact quantities, make a quote, hold a date, approve venue logistics, schedule a consultation, collect payment, or place an order.</p></div>
+        </section>
+      </div>
+
+      <aside class="brief-card">
+        <div class="brief-head"><p>Consultation brief</p><span>Live draft</span></div>
+        <div class="brief-title"><span>✦</span><div><small>Wedding of</small><h3 id="brief-couple">Your names here</h3></div></div>
+        <dl><div><dt>Date</dt><dd id="brief-date">Still open</dd></div><div><dt>Venue</dt><dd id="brief-venue">Still open</dd></div><div><dt>Guests</dt><dd id="brief-guests">Still open</dd></div><div><dt>Style</dt><dd id="brief-style">Garden-inspired</dd></div></dl>
+        <div class="brief-colors" id="brief-colors"></div>
+        <div class="brief-zones"><div><span>Floral spaces</span><strong id="brief-total">3</strong></div><div id="brief-categories"></div></div>
+        <div class="open-list"><span>Questions to confirm</span><ul id="question-list"></ul></div>
+        <div class="boundary-note"><strong>A useful first pass</strong><p>No inventory, stems, quote, date, or venue details are confirmed here.</p></div>
+        <button class="primary-button" id="copy-side" type="button"><span>Copy full brief</span><b>3 areas ↗</b></button>
+      </aside>
+    </div>
+    <footer><strong>Bloom Map</strong><p>An independent working concept prepared for Charleston Florist. Final recommendations belong with their team.</p></footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
