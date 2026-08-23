@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Turn furniture details, condition notes, finish direction, transport needs, and photos into a useful commission brief."
+    />
+    <meta name="theme-color" content="#292a26" />
+    <title>Against The Grain Piece Planner</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="wordmark" href="#top" aria-label="Piece Planner home">
+        <span class="mark">ATG</span>
+        <span><strong>Piece Planner</strong><small>Commission brief builder</small></span>
+      </a>
+      <a class="header-link" href="#planner">Start a piece ↓</a>
+    </header>
+
+    <main>
+      <section class="hero" id="top">
+        <div class="hero-copy">
+          <p class="eyebrow">A working concept for Against The Grain Studio</p>
+          <h1>A better brief for a better second life.</h1>
+          <p class="lede">
+            Turn a rough furniture idea into a useful first conversation—piece
+            details, condition, finish direction, transport, and the photos that
+            matter.
+          </p>
+          <a class="button primary" href="#planner">Plan my piece <span>↘</span></a>
+        </div>
+        <figure class="hero-image">
+          <img
+            src="https://against-the-grain-piece-planner.tverd23.chatgpt.site/piece-before-after.png"
+            alt="Vintage dresser shown half worn dark wood and half refinished in dusty sage with a natural wood top"
+          />
+          <figcaption><span>Before</span><span>Possibility</span></figcaption>
+        </figure>
+      </section>
+
+      <section class="planner-intro" id="planner">
+        <div>
+          <p class="eyebrow">The piece planner</p>
+          <h2>Give the project a clear starting point.</h2>
+        </div>
+        <p>
+          Fill in what you know and leave the rest open. This organizes the first
+          conversation; Sara still reviews the piece, service fit, and estimate.
+        </p>
+      </section>
+
+      <div class="planner-shell">
+        <form id="piece-form" class="form-panel">
+          <section class="step">
+            <div class="step-heading">
+              <span>01</span>
+              <div><small>Identify</small><h3>What are we looking at?</h3></div>
+            </div>
+            <fieldset>
+              <legend>Piece type</legend>
+              <div class="choice-grid" data-single="pieceType">
+                <button type="button" data-value="Dresser / chest">Dresser / chest <i>+</i></button>
+                <button type="button" data-value="Table">Table <i>+</i></button>
+                <button type="button" data-value="Chairs / set">Chairs / set <i>+</i></button>
+                <button type="button" data-value="Desk / vanity">Desk / vanity <i>+</i></button>
+                <button type="button" data-value="Cabinet / nightstand">Cabinet / nightstand <i>+</i></button>
+                <button type="button" data-value="Something else">Something else <i>+</i></button>
+              </div>
+            </fieldset>
+            <div class="field-grid four">
+              <label><span>Quantity</span><input name="quantity" type="number" min="1" value="1" /></label>
+              <label><span>Width (in.)</span><input name="width" inputmode="decimal" placeholder="48" /></label>
+              <label><span>Height (in.)</span><input name="height" inputmode="decimal" placeholder="36" /></label>
+              <label><span>Depth (in.)</span><input name="depth" inputmode="decimal" placeholder="20" /></label>
+            </div>
+          </section>
+
+          <section class="step">
+            <div class="step-heading">
+              <span>02</span>
+              <div><small>Observe</small><h3>What’s there today?</h3></div>
+            </div>
+            <div class="field-grid two">
+              <label>
+                <span>Material</span>
+                <select name="material">
+                  <option value="">Select what you know</option>
+                  <option>Solid wood</option><option>Wood veneer</option>
+                  <option>Mixed materials</option><option>Painted wood</option>
+                  <option>Not sure</option>
+                </select>
+              </label>
+              <label>
+                <span>Current finish</span>
+                <select name="currentFinish">
+                  <option value="">Select a finish</option>
+                  <option>Stain / clear finish</option><option>Paint</option>
+                  <option>Wax or oil</option><option>Raw / stripped</option>
+                  <option>Unknown</option>
+                </select>
+              </label>
+            </div>
+            <fieldset>
+              <legend>Condition notes</legend>
+              <div class="chips" data-multi="conditions">
+                <button type="button" data-value="Surface scratches">+ Surface scratches</button>
+                <button type="button" data-value="Peeling / chipped finish">+ Peeling / chipped finish</button>
+                <button type="button" data-value="Loose joints / wobble">+ Loose joints / wobble</button>
+                <button type="button" data-value="Veneer damage">+ Veneer damage</button>
+                <button type="button" data-value="Water rings / stains">+ Water rings / stains</button>
+                <button type="button" data-value="Missing / broken hardware">+ Missing / broken hardware</button>
+                <button type="button" data-value="Not sure yet">+ Not sure yet</button>
+              </div>
+            </fieldset>
+          </section>
+
+          <section class="step">
+            <div class="step-heading">
+              <span>03</span>
+              <div><small>Imagine</small><h3>Where should it go next?</h3></div>
+            </div>
+            <fieldset>
+              <legend>Project direction</legend>
+              <div class="choice-grid goals" data-single="goal">
+                <button type="button" data-value="Restore original character">Restore original character <i>+</i></button>
+                <button type="button" data-value="Refinish natural wood">Refinish natural wood <i>+</i></button>
+                <button type="button" data-value="Painted transformation">Painted transformation <i>+</i></button>
+                <button type="button" data-value="Mix paint + wood">Mix paint + wood <i>+</i></button>
+                <button type="button" data-value="Repair only / unsure">Repair only / unsure <i>+</i></button>
+              </div>
+            </fieldset>
+            <div class="field-grid two">
+              <label><span>Color or style direction · optional</span><input name="colorDirection" placeholder="Dusty sage, warm walnut, cottage..." /></label>
+              <label>
+                <span>Preferred sheen · optional</span>
+                <select name="sheen">
+                  <option value="">Open to guidance</option><option>Matte</option>
+                  <option>Satin</option><option>Semi-gloss</option><option>Keep it natural</option>
+                </select>
+              </label>
+              <label class="full">
+                <span>Hardware direction · optional</span>
+                <select name="hardware">
+                  <option value="">Open to guidance</option><option>Keep and clean existing</option>
+                  <option>Keep, but refinish</option><option>Replace</option><option>Missing / needs sourcing</option>
+                </select>
+              </label>
+            </div>
+          </section>
+
+          <section class="step">
+            <div class="step-heading">
+              <span>04</span>
+              <div><small>Coordinate</small><h3>How might it get to the studio?</h3></div>
+            </div>
+            <div class="field-grid two">
+              <label><span>Neighborhood or ZIP</span><input name="location" placeholder="James Island / 29412" /></label>
+              <label>
+                <span>Transport preference</span>
+                <select name="transport">
+                  <option value="">Select one</option><option>I can deliver</option>
+                  <option>Pickup request</option><option>Moving help for a large piece</option>
+                  <option>Not sure yet</option>
+                </select>
+              </label>
+            </div>
+            <fieldset>
+              <legend>Access notes</legend>
+              <div class="chips" data-multi="access">
+                <button type="button" data-value="Ground floor">+ Ground floor</button>
+                <button type="button" data-value="Stairs or tight path">+ Stairs or tight path</button>
+                <button type="button" data-value="Loading / parking limits">+ Loading / parking limits</button>
+              </div>
+            </fieldset>
+            <div class="field-grid two">
+              <label>
+                <span>Timing · optional</span>
+                <select name="timing">
+                  <option value="">Flexible / just exploring</option><option>Within 1–2 months</option>
+                  <option>Within 3–4 months</option><option>For a specific date</option>
+                </select>
+              </label>
+              <label><span>Your name · optional</span><input name="contactName" placeholder="For the brief" /></label>
+              <label class="full"><span>Anything else Sara should know? · optional</span><textarea name="notes" rows="4" placeholder="History of the piece, sentimental details, inspiration links..."></textarea></label>
+            </div>
+          </section>
+        </form>
+
+        <aside class="brief-panel" aria-live="polite">
+          <div class="brief-topline"><p>Live piece brief</p><span id="readiness">Needs a few details</span></div>
+          <h2 id="brief-title">Your furniture piece</h2>
+          <p id="readiness-detail" class="readiness-copy">8 core details still open.</p>
+          <dl class="brief-facts">
+            <div><dt>Conversation lane</dt><dd id="lane">Design + service-fit conversation</dd></div>
+            <div><dt>Overall size</dt><dd id="dimensions">Not complete yet</dd></div>
+            <div><dt>Direction</dt><dd id="direction">Still open</dd></div>
+          </dl>
+          <section class="brief-section">
+            <h3><span>01</span> Photos to gather</h3>
+            <ul id="photos"></ul>
+          </section>
+          <section class="brief-section flags">
+            <h3><span>02</span> Questions before estimating</h3>
+            <ul id="flags"></ul>
+          </section>
+          <div class="brief-actions">
+            <button id="save" type="button" class="button light">Save this plan</button>
+            <div><button id="copy" type="button">Copy brief</button><button id="reset" type="button">Start over</button></div>
+          </div>
+          <details><summary>Preview the full text brief</summary><pre id="brief-text"></pre></details>
+          <button id="email" type="button" class="email-button">Open an email to Against The Grain <span>↗</span></button>
+          <p class="email-note">Photos still need to be attached in your email app.</p>
+        </aside>
+      </div>
+
+      <section class="mobile-idea">
+        <div><p class="eyebrow">A natural next step</p><h2>This brief could travel with the piece.</h2></div>
+        <p>A mobile version could add guided camera capture, finish mockups, client approvals, project status, and pickup scheduling—without turning a careful studio process into a generic checkout flow.</p>
+        <div class="mobile-features">
+          <div><span>01</span><strong>Guided photos</strong></div>
+          <div><span>02</span><strong>Finish mockups</strong></div>
+          <div><span>03</span><strong>Client approvals</strong></div>
+          <div><span>04</span><strong>Project updates</strong></div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div><span class="mark">ATG</span><p>Against The Grain Piece Planner</p></div>
+      <p>Independent planning concept. It does not inspect furniture, determine structural safety or serviceability, or confirm service fit, pricing, availability, timeline, transport, or a final estimate.</p>
+    </footer>
+    <script src="./app.js"></script>
+  </body>
+</html>
