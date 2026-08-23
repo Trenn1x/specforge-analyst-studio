@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Map a Charleston garden bed’s light, wet spots, style, and constraints before a retail plant conversation or design consultation."
+    />
+    <meta name="theme-color" content="#1f3526" />
+    <title>Meeting Green Garden Canvas</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Garden Canvas home">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span><strong>Garden Canvas</strong><small>A working concept for Meeting Green</small></span>
+      </a>
+      <div class="header-actions"><span>Charleston, SC</span><a href="#canvas">Map your bed ↓</a></div>
+    </header>
+
+    <main>
+      <section class="intro" id="top">
+        <div>
+          <p class="eyebrow">Start with what the garden is already telling you</p>
+          <h1>Map the bed. Bring the right questions.</h1>
+        </div>
+        <p>Sketch the sun, shade, wet spots, style, and goals before you visit the garden center—or before a designer walks the property.</p>
+      </section>
+
+      <div class="workspace" id="canvas">
+        <section class="canvas-panel" aria-label="Interactive garden bed map">
+          <div class="panel-heading">
+            <div><span>01 / Site read</span><h2>Paint the conditions you notice.</h2></div>
+            <p>Pick a condition, then tap the grid. It’s a memory aid, not a survey.</p>
+          </div>
+
+          <div class="path-row" data-single="projectPath">
+            <button type="button" data-value="DIY plant guidance"><span>DIY plant guidance</span><i>+</i></button>
+            <button type="button" data-value="Full design conversation"><span>Full design conversation</span><i>+</i></button>
+          </div>
+
+          <div class="dimension-row">
+            <label>
+              <span class="field-label">Bed shape</span>
+              <select name="bedShape">
+                <option>Rectangle</option><option>Curved border</option><option>L-shaped</option>
+                <option>Island bed</option><option>Container grouping</option>
+              </select>
+            </label>
+            <label><span class="field-label">Length (ft)</span><input name="length" inputmode="decimal" placeholder="12" /></label>
+            <label><span class="field-label">Width (ft)</span><input name="width" inputmode="decimal" placeholder="4" /></label>
+          </div>
+
+          <div class="paint-tools" role="group" aria-label="Map condition">
+            <button type="button" class="paint-tool blank" data-zone="blank"><span></span>Not mapped</button>
+            <button type="button" class="paint-tool sun active" data-zone="sun"><span></span>Full sun</button>
+            <button type="button" class="paint-tool part" data-zone="part"><span></span>Part sun</button>
+            <button type="button" class="paint-tool shade" data-zone="shade"><span></span>Shade</button>
+            <button type="button" class="paint-tool wet" data-zone="wet"><span></span>Wet / slow spot</button>
+          </div>
+
+          <div class="garden-map-wrap">
+            <div class="map-axis vertical"><span>House / structure</span><span>Open edge</span></div>
+            <div class="garden-map" id="garden-map"></div>
+            <div class="map-axis horizontal"><span>Morning side</span><span>Afternoon side</span></div>
+          </div>
+          <div class="map-summary">
+            <span id="mapped-count">0/24 cells mapped</span>
+            <div id="zone-summary"></div>
+          </div>
+        </section>
+
+        <aside class="live-brief" aria-live="polite">
+          <div class="brief-status"><span>Live garden brief</span><strong id="readiness">7 details open</strong></div>
+          <h2 id="lane">Start with a quick project fit check</h2>
+          <p id="readiness-copy">Add what you know. Unknowns are useful when they are named clearly.</p>
+          <dl class="brief-facts">
+            <div><dt>Bed</dt><dd id="dimensions">Measurements still open</dd></div>
+            <div><dt>Dominant condition</dt><dd id="dominant">Not mapped yet</dd></div>
+            <div><dt>Direction</dt><dd id="direction">Still open</dd></div>
+          </dl>
+          <section class="brief-section">
+            <div class="section-title"><span>01</span><h3>Design language</h3></div>
+            <ul id="language" class="language-list"></ul>
+          </section>
+          <section class="brief-section">
+            <div class="section-title"><span>02</span><h3>Photos to bring</h3></div>
+            <ul id="photos" class="check-list"></ul>
+          </section>
+          <section class="brief-section">
+            <div class="section-title"><span>03</span><h3>Needs a human look</h3></div>
+            <ul id="questions" class="question-list"></ul>
+          </section>
+          <div class="brief-actions">
+            <button type="button" id="save" class="primary-button">Save this canvas</button>
+            <div><button type="button" id="copy">Copy brief</button><button type="button" id="reset">Start over</button></div>
+          </div>
+        </aside>
+      </div>
+
+      <section class="details-section">
+        <div class="details-heading">
+          <span>02 / Garden character</span>
+          <h2>Describe the garden you want to live with.</h2>
+          <p>Meeting Green can still challenge the idea. The point here is to give the conversation somewhere useful to start.</p>
+        </div>
+        <div class="details-grid">
+          <div class="detail-card">
+            <fieldset>
+              <legend>Visual direction</legend>
+              <div class="style-grid" data-single="style">
+                <button type="button" data-value="Formal + tailored"><span>Formal + tailored</span><i>+</i></button>
+                <button type="button" data-value="Secret garden"><span>Secret garden</span><i>+</i></button>
+                <button type="button" data-value="Native + loose"><span>Native + loose</span><i>+</i></button>
+                <button type="button" data-value="Color-forward"><span>Color-forward</span><i>+</i></button>
+                <button type="button" data-value="Drought-wise"><span>Drought-wise</span><i>+</i></button>
+              </div>
+            </fieldset>
+            <fieldset>
+              <legend>What should the bed do?</legend>
+              <div class="chip-list" data-multi="goals">
+                <button type="button" data-value="Privacy">+ Privacy</button>
+                <button type="button" data-value="Pollinators">+ Pollinators</button>
+                <button type="button" data-value="Seasonal color">+ Seasonal color</button>
+                <button type="button" data-value="Soften hardscape">+ Soften hardscape</button>
+                <button type="button" data-value="Pet / child-aware">+ Pet / child-aware</button>
+                <button type="button" data-value="Edible accents">+ Edible accents</button>
+              </div>
+            </fieldset>
+          </div>
+          <figure class="garden-image">
+            <img
+              src="https://charleston-garden-bed-planner.tverd23.chatgpt.site/garden-before-after.png"
+              alt="The same Charleston courtyard garden bed shown before and after a layered, colorful planting redesign"
+            />
+            <figcaption><span>Existing condition</span><span>Possible character</span></figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="logistics-section">
+        <div class="logistics-heading">
+          <span>03 / Practical fit</span>
+          <h2>Surface the constraints before they become surprises.</h2>
+        </div>
+        <form id="garden-form" class="form-grid">
+          <label>
+            <span class="field-label">Irrigation</span>
+            <select name="irrigation"><option value="">Select one</option><option>None</option><option>Hose access</option><option>Drip line</option><option>Spray heads</option><option>Not sure</option></select>
+          </label>
+          <label>
+            <span class="field-label">Drainage</span>
+            <select name="drainage"><option value="">Select one</option><option>Fast / dries quickly</option><option>Typical</option><option>Slow / standing water</option><option>Not sure</option></select>
+          </label>
+          <label>
+            <span class="field-label">Maintenance appetite</span>
+            <select name="maintenance"><option value="">Select one</option><option>Light touch</option><option>Regular weekend care</option><option>Hands-on gardener</option><option>Professional help</option></select>
+          </label>
+          <label><span class="field-label">Neighborhood or ZIP</span><input name="location" placeholder="West Ashley / 29407" /></label>
+          <label>
+            <span class="field-label">Timing <em>Optional</em></span>
+            <select name="timing"><option value="">Flexible / exploring</option><option>This season</option><option>Within 3–6 months</option><option>Planning for next season</option></select>
+          </label>
+          <label><span class="field-label">Your name <em>Optional</em></span><input name="contactName" placeholder="For the brief" /></label>
+          <label class="full-field"><span class="field-label">What else should the team understand? <em>Optional</em></span><textarea name="notes" rows="5" placeholder="Existing plants to keep, HOA constraints, inspiration, drainage history..."></textarea></label>
+        </form>
+
+        <div class="handoff">
+          <div>
+            <span>04 / Handoff</span>
+            <h2>Turn the canvas into a clean first note.</h2>
+            <p>The email includes the map summary, goals, constraints, photo checklist, and open questions. You still attach the photos yourself.</p>
+          </div>
+          <div class="handoff-actions">
+            <button type="button" id="email" class="primary-button">Open an email to Meeting Green <span>↗</span></button>
+            <button type="button" id="copy-two" class="secondary-button">Copy brief</button>
+          </div>
+        </div>
+        <details class="brief-preview"><summary>Preview the full garden brief</summary><pre id="brief-text"></pre></details>
+      </section>
+
+      <section class="mobile-section">
+        <div><p class="eyebrow">A useful mobile version</p><h2>The site visit could start before anyone drives over.</h2></div>
+        <p>Guided camera capture could tag direction and time of day. A finished app could add AR bed layouts, live plant availability, care reminders, design approvals, and installation updates.</p>
+        <div class="mobile-grid">
+          <div><span>01</span><strong>Sun-aware photos</strong></div>
+          <div><span>02</span><strong>AR bed layouts</strong></div>
+          <div><span>03</span><strong>Live availability</strong></div>
+          <div><span>04</span><strong>Design approvals</strong></div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><p>Meeting Green Garden Canvas</p></div>
+      <p>Independent planning concept—not an official Meeting Green tool. It does not survey a site, diagnose drainage, identify plants, confirm plant or service fit, check inventory, calculate quantities, or provide pricing, availability, installation timing, code, HOA, or safety guidance.</p>
+    </footer>
+    <script src="./app.js"></script>
+  </body>
+</html>
