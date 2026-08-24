@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Load Ready — Pickup Brief Builder</title>
+  <meta name="description" content="Organize items, access, timing, and useful photos into a clear junk-removal pickup brief.">
+  <meta property="og:title" content="Load Ready — Pickup Brief Builder">
+  <meta property="og:description" content="Show the load before the truck rolls.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://trenn1x.github.io/specforge-analyst-studio/coastal-junk-load-ready/">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="sitebar" id="top">
+    <a class="brand" href="#top" aria-label="Load Ready home">
+      <span class="brand-mark">LR</span>
+      <span>Load Ready</span>
+    </a>
+    <div class="sitebar-actions">
+      <button id="reset" class="text-button" type="button">Start over</button>
+      <span class="concept-tag">Independent concept · not a quote</span>
+    </div>
+  </header>
+
+  <main>
+    <section class="intro">
+      <div>
+        <p class="eyebrow">Pickup brief builder</p>
+        <h1>Show the load<br><em>before the truck rolls.</em></h1>
+      </div>
+      <div class="intro-copy">
+        <p>Turn a pile of items, an access route, and a few useful photos into one clean starting brief for Coastal Junk Solutions.</p>
+        <div class="trust-row">
+          <span>Local + family-owned</span>
+          <span>Summerville area</span>
+          <span>Human-confirmed pickup</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="workspace">
+      <div class="planner">
+        <section class="panel" id="items">
+          <div class="section-head">
+            <div>
+              <p class="step">01 · Build the item list</p>
+              <h2>What needs to leave?</h2>
+            </div>
+            <div class="section-note">
+              <strong id="item-total">0 items</strong>
+              <span>Counts are a conversation aid, not a truck-space or price estimate.</span>
+            </div>
+          </div>
+          <div class="item-grid" id="item-grid"></div>
+          <label class="field full">
+            <span>Something else, or more detail</span>
+            <textarea id="other-items" placeholder="Example: loose shelving, mixed garage bins, old playset pieces, unknown boxes…"></textarea>
+          </label>
+        </section>
+
+        <section class="panel" id="place">
+          <div class="section-head">
+            <div>
+              <p class="step">02 · Place + access</p>
+              <h2>Map the path to the pile.</h2>
+            </div>
+            <p>Access details help Mike’s team know what to ask before anyone relies on a time or scope.</p>
+          </div>
+
+          <div class="field-grid">
+            <label class="field">
+              <span>Project type</span>
+              <select id="project-type">
+                <option>Home declutter</option>
+                <option>Garage cleanout</option>
+                <option>Estate or move-out cleanout</option>
+                <option>Office cleanout</option>
+                <option>Renovation debris</option>
+                <option>Yard cleanup</option>
+                <option>Something else</option>
+              </select>
+            </label>
+            <label class="field">
+              <span>Service area</span>
+              <select id="service-area">
+                <option value="">Choose a city</option>
+                <option>Summerville</option>
+                <option>North Charleston</option>
+                <option>Goose Creek</option>
+                <option>Moncks Corner</option>
+                <option>Ladson</option>
+                <option>Somewhere else nearby</option>
+              </select>
+            </label>
+            <label class="field full">
+              <span>Address or ZIP for review</span>
+              <input id="location" autocomplete="street-address" placeholder="Street, neighborhood, or ZIP">
+            </label>
+          </div>
+
+          <fieldset class="block">
+            <legend>Where are the items now?</legend>
+            <div class="segments" id="setting-options">
+              <button type="button" data-setting="Curb or driveway">Curb / driveway</button>
+              <button type="button" data-setting="Garage">Garage</button>
+              <button type="button" data-setting="Ground floor">Ground floor</button>
+              <button type="button" data-setting="Upstairs">Upstairs</button>
+              <button type="button" data-setting="Yard or outbuilding">Yard / outbuilding</button>
+              <button type="button" data-setting="Office or commercial space">Office / commercial</button>
+            </div>
+          </fieldset>
+
+          <fieldset class="block">
+            <legend>Access notes worth seeing early</legend>
+            <div class="check-grid">
+              <label><input type="checkbox" data-access="Stairs are involved"><span>Stairs</span></label>
+              <label><input type="checkbox" data-access="Elevator or loading dock may be needed"><span>Elevator / loading dock</span></label>
+              <label><input type="checkbox" data-access="Gate, code, HOA, or property access"><span>Gate / code / HOA</span></label>
+              <label><input type="checkbox" data-access="Long carry from items to parking"><span>Long carry</span></label>
+              <label><input type="checkbox" data-access="Parking or truck access may be tight"><span>Tight parking</span></label>
+              <label><input type="checkbox" data-access="Items may need disassembly"><span>Possible disassembly</span></label>
+            </div>
+          </fieldset>
+
+          <div class="field-grid">
+            <label class="field full">
+              <span>Walk-through note</span>
+              <textarea id="access-notes" placeholder="Floor, turns, gate width, parking, pets, occupied rooms, business hours, where the pile begins…"></textarea>
+            </label>
+          </div>
+        </section>
+
+        <section class="panel" id="photos">
+          <div class="section-head">
+            <div>
+              <p class="step">03 · Photo plan</p>
+              <h2>Take the photos that answer something.</h2>
+            </div>
+            <p>Selected photos preview only on this device. This concept does not upload or store them, and an email draft cannot attach them automatically.</p>
+          </div>
+
+          <div class="photo-layout">
+            <div class="photo-checklist">
+              <p class="mini-label">Suggested shots</p>
+              <div id="photo-checklist"></div>
+            </div>
+            <div class="photo-picker">
+              <label class="upload-button" for="photo-input">
+                <span>Add up to 6 photos</span>
+                <small>Camera or photo library · JPG, PNG, HEIC if supported</small>
+              </label>
+              <input id="photo-input" type="file" accept="image/*" capture="environment" multiple>
+              <div class="photo-meta">
+                <span id="photo-count">No photos selected</span>
+                <button id="clear-photos" type="button">Clear</button>
+              </div>
+              <div class="photo-previews" id="photo-previews"></div>
+            </div>
+          </div>
+
+          <fieldset class="review-flags">
+            <legend>Flag anything that needs a human answer</legend>
+            <div class="flag-list">
+              <label><input type="checkbox" data-flag="An item is still connected, installed, or built in"><span>Still connected, installed, or built in</span></label>
+              <label><input type="checkbox" data-flag="An item is unusually heavy, fragile, damaged, or has sharp edges"><span>Very heavy, fragile, damaged, or sharp</span></label>
+              <label><input type="checkbox" data-flag="The load may include fuel, liquid, paint, chemicals, batteries, or pressurized containers"><span>Fuel, liquid, paint, chemicals, batteries, or pressurized containers</span></label>
+              <label><input type="checkbox" data-flag="Some boxes or containers have unknown contents"><span>Unknown contents</span></label>
+              <label><input type="checkbox" data-flag="Customer would like donation or recycling preferences discussed"><span>Donation / recycling preference to discuss</span></label>
+            </div>
+            <label class="field inset">
+              <span>Condition or handling detail</span>
+              <textarea id="handling-notes" placeholder="What should the team see or ask about before confirming the job?"></textarea>
+            </label>
+          </fieldset>
+        </section>
+
+        <section class="panel" id="handoff">
+          <div class="section-head">
+            <div>
+              <p class="step">04 · Timing + handoff</p>
+              <h2>Give Mike one brief to react to.</h2>
+            </div>
+            <p>Same-day service is something Coastal Junk Solutions says is often available. This planner only records interest; it never holds a time.</p>
+          </div>
+
+          <fieldset class="block">
+            <legend>Timing conversation</legend>
+            <div class="segments three" id="urgency-options">
+              <button type="button" data-urgency="Flexible timing" class="selected">Flexible</button>
+              <button type="button" data-urgency="A preferred day">Preferred day</button>
+              <button type="button" data-urgency="Interested in same-day if available">Ask about same-day</button>
+            </div>
+          </fieldset>
+
+          <div class="field-grid">
+            <label class="field">
+              <span>Preferred date</span>
+              <input id="preferred-date" type="date">
+            </label>
+            <label class="field">
+              <span>Preferred window</span>
+              <select id="preferred-window">
+                <option>No preference</option>
+                <option>Morning</option>
+                <option>Midday</option>
+                <option>Afternoon</option>
+                <option>Needs a conversation</option>
+              </select>
+            </label>
+            <label class="field">
+              <span>Your name</span>
+              <input id="contact-name" autocomplete="name" placeholder="Name">
+            </label>
+            <label class="field">
+              <span>Your email</span>
+              <input id="contact-email" type="email" autocomplete="email" placeholder="you@example.com">
+            </label>
+            <label class="field">
+              <span>Phone · optional</span>
+              <input id="contact-phone" type="tel" autocomplete="tel" placeholder="(843) 555-0123">
+            </label>
+            <label class="field">
+              <span>Best reply route</span>
+              <select id="reply-route">
+                <option>Email</option>
+                <option>Phone call</option>
+                <option>Text, if offered</option>
+                <option>No preference</option>
+              </select>
+            </label>
+            <label class="field full">
+              <span>Anything else Mike should know?</span>
+              <textarea id="final-notes" placeholder="Deadline, property contact, multiple pickup areas, privacy concern, donation preference…"></textarea>
+            </label>
+          </div>
+
+          <div class="boundary">
+            <strong>This is a planning brief, not a service decision.</strong>
+            <p>It does not identify accepted or restricted materials, assess safety, estimate volume or weight, set a price, promise donation or recycling, confirm service area, hold a date, dispatch a crew, collect payment, or book a pickup.</p>
+          </div>
+        </section>
+      </div>
+
+      <aside class="summary" aria-label="Live pickup brief">
+        <div class="summary-top">
+          <div>
+            <p class="mini-label">Live pickup brief</p>
+            <h2 id="summary-title">Start with the item list.</h2>
+          </div>
+          <span class="readiness" id="readiness">0%</span>
+        </div>
+
+        <div class="load-card">
+          <div class="load-profile">
+            <span>Conversation lane</span>
+            <strong id="profile">No items yet</strong>
+          </div>
+          <div class="load-track" aria-hidden="true"><i id="load-track"></i></div>
+          <small>Visual progress only—never a truck-space estimate.</small>
+        </div>
+
+        <div class="summary-items">
+          <div class="summary-label"><span>Selected items</span><b id="summary-count">0</b></div>
+          <div id="summary-items"><p class="empty">Tap + on any item to build the list.</p></div>
+        </div>
+
+        <div class="question-card">
+          <span id="question-count">6</span>
+          <p><strong>questions still open</strong><small id="first-question">What should the team expect to haul?</small></p>
+        </div>
+
+        <details class="brief-preview">
+          <summary>Preview the full brief</summary>
+          <pre id="brief-text"></pre>
+        </details>
+
+        <div class="summary-actions">
+          <a class="call-link" href="tel:+18435011750">Call 843-501-1750 <span>↗</span></a>
+          <button id="copy-brief" type="button">Copy pickup brief</button>
+          <a class="email-link" id="email-brief" href="mailto:mike@coastaljunksolutions.com">Open in email <span>↗</span></a>
+        </div>
+        <p class="action-note" id="action-note" role="status" aria-live="polite">The email button opens a draft in your mail app. It does not send anything.</p>
+      </aside>
+    </div>
+  </main>
+
+  <footer>
+    <div><strong>Load Ready</strong><span>Independent working concept for Coastal Junk Solutions.</span></div>
+    <p>Customer-entered details are unverified. Final scope, accepted items, access, price, timing, and service decisions belong with Mike’s team.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
