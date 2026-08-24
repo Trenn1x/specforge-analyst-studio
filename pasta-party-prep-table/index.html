@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Prep Table — Pasta Party Host Planner</title>
+  <meta name="description" content="Shape a Pasta Party, check the kitchen basics, and organize one clear host brief.">
+  <meta property="og:title" content="Prep Table — Pasta Party Host Planner">
+  <meta property="og:description" content="Plan the people, kitchen, add-ons, and open questions before the consultation.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://trenn1x.github.io/specforge-analyst-studio/pasta-party-prep-table/">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar" id="top">
+    <a class="brand" href="#top" aria-label="Prep Table home">
+      <span class="brand-mark">PT</span>
+      <span>Prep Table</span>
+    </a>
+    <div class="top-actions">
+      <button id="reset" type="button">Start over</button>
+      <span>Independent concept · not a booking tool</span>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Pasta Party host planner</p>
+        <h1>Get the table ready<br><em>before the flour flies.</em></h1>
+        <p>Shape the party, check the kitchen basics, and turn the details into one useful starting brief for Pasta Party CHS.</p>
+        <div class="hero-facts">
+          <span>Home · rental · workplace</span>
+          <span>Up to 12 in the published standard lane</span>
+          <span>Human-confirmed consultation</span>
+        </div>
+      </div>
+      <figure class="hero-image">
+        <img src="pasta-party-table-hero.svg" alt="Overhead pasta-making table with fresh fettuccine, ravioli, flour, and kitchen tools">
+        <figcaption>Original concept image · no customer information is uploaded</figcaption>
+      </figure>
+    </section>
+
+    <div class="workspace">
+      <div class="planner">
+        <section class="panel" id="party">
+          <div class="section-head">
+            <div>
+              <p class="step">01 · Shape the party</p>
+              <h2>What kind of table are we setting?</h2>
+            </div>
+            <p>Choose the closest public party lane. Pasta Party CHS still confirms the format, date, and whether a custom group makes sense.</p>
+          </div>
+
+          <div class="party-grid" id="party-options">
+            <button type="button" data-party="I Dough bachelorette party" class="selected">
+              <span>01</span><strong>I Dough</strong><small>Bachelorette or Charleston girls’ trip</small>
+            </button>
+            <button type="button" data-party="Noodle Night dinner party">
+              <span>02</span><strong>Noodle Night</strong><small>Girls’ night, neighbors, or dinner party</small>
+            </button>
+            <button type="button" data-party="Carb Collab team event">
+              <span>03</span><strong>Carb Collab</strong><small>Team-building or workplace event</small>
+            </button>
+            <button type="button" data-party="Another celebration to discuss">
+              <span>04</span><strong>Another reason</strong><small>Birthday, family gathering, or custom idea</small>
+            </button>
+          </div>
+
+          <div class="headcount-card">
+            <label for="headcount">
+              <span>Expected pasta partiers</span>
+              <output id="headcount-output" for="headcount">8</output>
+            </label>
+            <input id="headcount" type="number" inputmode="numeric" min="1" step="1" value="8" aria-describedby="headcount-policy">
+            <p id="headcount-policy" class="headcount-policy"><strong>Published standard maximum: 12.</strong> Larger groups go to a conversation with Pasta Party CHS.</p>
+            <p id="headcount-note">A group of 8 is within the published standard cap to discuss.</p>
+          </div>
+
+          <div class="field-grid">
+            <label class="field">
+              <span>Preferred date</span>
+              <input id="party-date" type="date">
+            </label>
+            <label class="field">
+              <span>Alternate date · optional</span>
+              <input id="alternate-date" type="date">
+            </label>
+            <label class="field">
+              <span>Preferred guest start</span>
+              <input id="start-time" type="time">
+            </label>
+            <label class="field">
+              <span>Host setting</span>
+              <select id="setting">
+                <option value="">Choose one</option>
+                <option>Private home</option>
+                <option>Vacation rental / Airbnb</option>
+                <option>Workplace</option>
+                <option>Other location to discuss</option>
+                <option>Still deciding</option>
+              </select>
+            </label>
+            <label class="field full">
+              <span>Neighborhood, property, or address for review</span>
+              <input id="location" maxlength="180" placeholder="Downtown, Isle of Palms, Daniel Island, rental name, or address">
+            </label>
+            <label class="field full">
+              <span>Occasion, theme, or the story behind the party</span>
+              <textarea id="occasion" maxlength="500" placeholder="Bride’s name, birthday, team goal, dress-up theme, surprise, dinner-party idea…"></textarea>
+            </label>
+          </div>
+        </section>
+
+        <section class="panel" id="kitchen">
+          <div class="section-head">
+            <div>
+              <p class="step">02 · Kitchen check</p>
+              <h2>Make the virtual visit easier.</h2>
+            </div>
+            <p>Pasta Party CHS says every party includes a consultation and virtual kitchen visit. This is only the useful prep—not a kitchen approval.</p>
+          </div>
+
+          <fieldset class="kitchen-check">
+            <legend>Host-reported status of the published kitchen basics</legend>
+            <div class="station-grid">
+              <label>
+                <span class="station-icon" aria-hidden="true">01</span>
+                <strong>Work surface</strong>
+                <small>Large island, counter, or other workspace</small>
+                <select data-kitchen="Large island, countertop, or workspace" aria-label="Work surface availability">
+                  <option value="">Not answered</option>
+                  <option>Available</option>
+                  <option>Not available</option>
+                  <option>Need to ask property</option>
+                </select>
+              </label>
+              <label>
+                <span class="station-icon" aria-hidden="true">02</span>
+                <strong>Sink</strong>
+                <small>Accessible working sink</small>
+                <select data-kitchen="Working sink" aria-label="Sink availability">
+                  <option value="">Not answered</option>
+                  <option>Available</option>
+                  <option>Not available</option>
+                  <option>Need to ask property</option>
+                </select>
+              </label>
+              <label>
+                <span class="station-icon" aria-hidden="true">03</span>
+                <strong>Stovetop</strong>
+                <small>For boiling pasta and making sauce</small>
+                <select data-kitchen="Working stovetop" aria-label="Stovetop availability">
+                  <option value="">Not answered</option>
+                  <option>Available</option>
+                  <option>Not available</option>
+                  <option>Need to ask property</option>
+                </select>
+              </label>
+              <label>
+                <span class="station-icon" aria-hidden="true">04</span>
+                <strong>Serveware</strong>
+                <small>Serving dishes and silverware</small>
+                <select data-kitchen="Serving dishes and silverware" aria-label="Serveware availability">
+                  <option value="">Not answered</option>
+                  <option>Available</option>
+                  <option>Not available</option>
+                  <option>Need to ask property</option>
+                </select>
+              </label>
+            </div>
+          </fieldset>
+
+          <div class="kitchen-board">
+            <div class="board-head">
+              <div><p class="mini-label">Self-reported kitchen map</p><h3 id="kitchen-title">Nothing checked yet</h3></div>
+              <strong id="kitchen-score">0 / 4</strong>
+            </div>
+            <div class="board-track"><i id="kitchen-track"></i></div>
+            <div class="board-stations" id="board-stations"></div>
+            <p>This board only organizes what the host reports. The Pasta Party CHS virtual visit determines what can work and what the team would need to bring.</p>
+          </div>
+
+          <div class="field-grid">
+            <label class="field">
+              <span>Closest workspace description</span>
+              <select id="workspace-type">
+                <option value="">Choose one</option>
+                <option>Large island</option>
+                <option>Long countertop</option>
+                <option>Dining or folding tables</option>
+                <option>Several smaller surfaces</option>
+                <option>Not sure yet</option>
+              </select>
+            </label>
+            <label class="field">
+              <span>Dishwasher</span>
+              <select id="dishwasher">
+                <option value="">Not answered</option>
+                <option>Available and working</option>
+                <option>Not available</option>
+                <option>Need to ask the property</option>
+              </select>
+            </label>
+          </div>
+
+          <fieldset class="access-check">
+            <legend>Setup and property details</legend>
+            <div class="check-grid">
+              <label><input type="checkbox" data-access="Parking or loading needs a plan"><span>Parking / loading</span></label>
+              <label><input type="checkbox" data-access="Gate, elevator, stairs, or entry code"><span>Gate / elevator / stairs</span></label>
+              <label><input type="checkbox" data-access="Rental or venue rules need confirmation"><span>Rental / venue rules</span></label>
+              <label><input type="checkbox" data-access="Extra tables or work surfaces may be needed"><span>May need extra tables</span></label>
+              <label><input type="checkbox" data-access="Outdoor or secondary serving area"><span>Secondary serving area</span></label>
+              <label><input type="checkbox" data-access="A firm property access window"><span>Firm access window</span></label>
+            </div>
+          </fieldset>
+
+          <label class="field standalone">
+            <span>Kitchen walk-through notes</span>
+            <textarea id="kitchen-notes" maxlength="500" placeholder="Counter length, outlets, tight turns, where everyone might work, property contact, parking, photos to show the team…"></textarea>
+          </label>
+        </section>
+
+        <section class="panel" id="details">
+          <div class="section-head">
+            <div>
+              <p class="step">03 · Shape the experience</p>
+              <h2>Put the custom questions in one place.</h2>
+            </div>
+            <p>Add-ons and guest needs are conversation prompts. This planner does not set a menu, handle allergy safety, or calculate a price.</p>
+          </div>
+
+          <div class="experience-layout">
+            <fieldset class="choice-card">
+              <legend>A la carte interests</legend>
+              <div class="choice-list">
+                <label><input type="checkbox" data-addon="Charcuterie board"><span><strong>Charcuterie</strong><small>Custom request; pricing varies</small></span></label>
+                <label><input type="checkbox" data-addon="Salad"><span><strong>Salad</strong><small>Favorite direction to discuss</small></span></label>
+                <label><input type="checkbox" data-addon="Dessert"><span><strong>Dessert</strong><small>Celebration or sweet finish</small></span></label>
+                <label><input type="checkbox" data-addon="Wine pairing"><span><strong>Wine pairing</strong><small>Details need a human conversation</small></span></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="choice-card">
+              <legend>Guest or event notes to flag</legend>
+              <div class="choice-list">
+                <label><input type="checkbox" data-guest="Dietary restrictions or allergy questions"><span><strong>Dietary / allergy question</strong><small>No accommodation is assumed</small></span></label>
+                <label><input type="checkbox" data-guest="Children or mixed ages"><span><strong>Children / mixed ages</strong><small>Age mix for the team to review</small></span></label>
+                <label><input type="checkbox" data-guest="Mobility, seating, or accessibility needs"><span><strong>Accessibility</strong><small>Seating, movement, or access note</small></span></label>
+                <label><input type="checkbox" data-guest="Alcohol-free or mixed drink preferences"><span><strong>Drink preferences</strong><small>Alcohol-free or mixed group</small></span></label>
+              </div>
+            </fieldset>
+          </div>
+
+          <div class="vibe-block">
+            <p class="mini-label">Closest vibe</p>
+            <div class="vibe-options" id="vibe-options">
+              <button type="button" data-vibe="Cozy dinner party" class="selected">Cozy dinner</button>
+              <button type="button" data-vibe="Full bachelorette theme">Full theme</button>
+              <button type="button" data-vibe="Team-building energy">Team event</button>
+              <button type="button" data-vibe="Family or birthday celebration">Family / birthday</button>
+              <button type="button" data-vibe="Simple and pasta-focused">Keep it simple</button>
+              <button type="button" data-vibe="Open to the team's ideas">Open to ideas</button>
+            </div>
+          </div>
+
+          <div class="field-grid">
+            <label class="field full">
+              <span>Guest, food, drink, or accessibility questions</span>
+              <textarea id="guest-notes" maxlength="500" placeholder="List the questions the team should see. Do not rely on this planner for allergy or food-safety decisions."></textarea>
+            </label>
+            <label class="field full">
+              <span>Theme and add-on direction</span>
+              <textarea id="theme-notes" maxlength="500" placeholder="Colors, playlist, dress-up, celebration dessert, charcuterie style, wine interest, team twist…"></textarea>
+            </label>
+          </div>
+        </section>
+
+        <section class="panel" id="timing">
+          <div class="section-head">
+            <div>
+              <p class="step">04 · Timing and handoff</p>
+              <h2>Leave room for setup, pasta, dinner, and cleanup.</h2>
+            </div>
+            <p>The public FAQ says parties typically run about four hours from the team’s arrival to departure, with add-ons adding time. Pasta Party CHS confirms the real schedule.</p>
+          </div>
+
+          <div class="timeline">
+            <div><span>01</span><strong>Advance setup</strong><small>Team arrival is confirmed separately</small></div>
+            <i></i>
+            <div><span>02</span><strong>Make + cook</strong><small>Two pastas and sauces in the standard description</small></div>
+            <i></i>
+            <div><span>03</span><strong>Dinner</strong><small>Enjoy what everyone made</small></div>
+            <i></i>
+            <div><span>04</span><strong>Cleanup</strong><small>Full departure window stays open</small></div>
+          </div>
+          <div class="timeline-callout">
+            <div><span>Published typical footprint</span><strong>About 4 hours</strong></div>
+            <p id="timeline-note">Add a preferred guest start, then the team can work backward to the actual setup arrival.</p>
+          </div>
+
+          <div class="field-grid">
+            <label class="field">
+              <span>Property access begins</span>
+              <input id="access-time" type="time">
+            </label>
+            <label class="field">
+              <span>Hard departure time · if any</span>
+              <input id="departure-time" type="time">
+            </label>
+            <label class="field">
+              <span>Your name</span>
+              <input id="contact-name" maxlength="100" autocomplete="name" placeholder="Host or planner">
+            </label>
+            <label class="field">
+              <span>Your email</span>
+              <input id="contact-email" maxlength="180" type="email" autocomplete="email" placeholder="you@example.com">
+            </label>
+            <label class="field">
+              <span>Phone · optional</span>
+              <input id="contact-phone" maxlength="40" type="tel" autocomplete="tel" placeholder="(843) 555-0123">
+            </label>
+            <label class="field">
+              <span>Best reply route</span>
+              <select id="reply-route">
+                <option>Email</option>
+                <option>Text, if offered</option>
+                <option>Phone call</option>
+                <option>No preference</option>
+              </select>
+            </label>
+            <label class="field full">
+              <span>Final question for Pasta Party CHS</span>
+              <textarea id="final-question" maxlength="300" placeholder="What still needs a real answer before the host relies on the plan?"></textarea>
+            </label>
+          </div>
+
+          <div class="boundary">
+            <strong>This brief prepares the consultation; it does not replace it.</strong>
+            <p>It does not approve a kitchen or venue, assess food or allergy safety, set a menu, confirm staffing, calculate add-on or party pricing, accept a deposit, apply the cancellation policy, hold a date, confirm availability, submit the brief on its own, or book a party.</p>
+          </div>
+        </section>
+      </div>
+
+      <aside class="summary" aria-label="Live Pasta Party brief">
+        <div class="summary-head">
+          <div><p class="mini-label">Live host brief</p><h2 id="summary-title">An I Dough party for 8</h2></div>
+          <span id="readiness" aria-label="Brief completeness">17%</span>
+        </div>
+
+        <dl class="summary-facts">
+          <div><dt>Party lane</dt><dd id="summary-party">I Dough</dd></div>
+          <div><dt>Date</dt><dd id="summary-date">Still open</dd></div>
+          <div><dt>Setting</dt><dd id="summary-setting">Not chosen</dd></div>
+          <div><dt>Guest start</dt><dd id="summary-start">Not set</dd></div>
+        </dl>
+
+        <div class="summary-section">
+          <div class="summary-label"><span>Kitchen basics</span><b id="summary-kitchen-count">0 / 4</b></div>
+          <div class="summary-tags" id="summary-kitchen"></div>
+        </div>
+
+        <div class="summary-section">
+          <div class="summary-label"><span>Add-ons + flags</span></div>
+          <div class="summary-tags" id="summary-extras"></div>
+        </div>
+
+        <div class="open-card">
+          <span id="question-count">7</span>
+          <p><strong>questions still open</strong><small id="first-question">What date should Pasta Party CHS check?</small></p>
+        </div>
+
+        <details class="brief-preview">
+          <summary>Preview the full host brief</summary>
+          <pre id="brief-text"></pre>
+        </details>
+
+        <div class="summary-actions">
+          <button id="copy-brief" type="button">Copy host brief</button>
+          <a id="email-brief" href="mailto:blair@pastapartychs.com">Open in email <span>↗</span></a>
+        </div>
+        <p class="action-note" id="action-note" role="status" aria-live="polite">Copy sends the full brief to your clipboard. Email opens a compact draft in your mail app. Neither action sends the message.</p>
+      </aside>
+    </div>
+  </main>
+
+  <footer>
+    <div><strong>Prep Table</strong><span>Independent working concept for Pasta Party CHS; not commissioned or affiliated.</span></div>
+    <p>Customer-entered details are unverified and stay in this browser unless you copy them or open an email draft, which transfers them to your clipboard or mail app. Every party, kitchen, food, timing, price, payment, and availability decision belongs with Pasta Party CHS.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
