@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fitting Ready — Garment & Appointment Planner</title>
+  <meta name="description" content="Organize a garment, fitting goals, event timing, and appointment prep into one clear tailoring brief.">
+  <meta property="og:title" content="Fitting Ready — Garment & Appointment Planner">
+  <meta property="og:description" content="Walk into the fitting with the right garment, context, and questions.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://trenn1x.github.io/specforge-analyst-studio/twelve-tailoring-fitting-ready/">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="shell" id="top">
+    <header class="topbar">
+      <a class="brand" href="#top"><span>12</span> Fitting Ready</a>
+      <div class="top-actions"><button id="reset" type="button">Start over</button><span class="concept">Independent concept · not a booking tool</span></div>
+    </header>
+
+    <section class="masthead">
+      <div><p class="eyebrow">Garment & appointment planner</p><h1>Bring the right details.<br><em>Leave the fit to the tailor.</em></h1></div>
+      <p>Turn a garment, deadline, and a handful of fit concerns into one useful starting brief for Twelve Tailoring.</p>
+    </section>
+
+    <div class="workspace">
+      <nav class="rail" aria-label="Planner sections">
+        <p class="rail-label">Fitting plan</p>
+        <a href="#garment"><b>01</b> Garment</a><a href="#fit"><b>02</b> Fit goals</a><a href="#prep"><b>03</b> Appointment prep</a><a href="#timeline"><b>04</b> Timeline</a><a href="#brief"><b>05</b> Brief</a>
+        <div class="meter"><div><span>Ready</span><strong id="meter-label">2/4</strong></div><i><b id="meter-bar"></b></i><small>Rough answers are enough for a first conversation.</small></div>
+      </nav>
+
+      <section class="canvas">
+        <section class="panel" id="garment">
+          <div class="section-head"><div><p class="step">01 · Start with the piece</p><h2>What are you bringing in?</h2></div><p>The garment changes what matters at the fitting, what to bring, and how early the timing conversation should begin.</p></div>
+          <div class="garment-cards" id="garment-cards"></div>
+          <div class="field-grid">
+            <label class="field wide"><span>Client / project name</span><input id="client" placeholder="Your name or wedding party"></label>
+            <label class="field"><span>Email</span><input id="email" type="email" placeholder="you@example.com"></label>
+            <label class="field"><span>Designer / brand · if known</span><input id="brand" placeholder="Optional"></label>
+            <label class="field"><span>Event or wear date</span><input id="event-date" type="date"></label>
+            <label class="field"><span>Occasion</span><input id="occasion" placeholder="Wedding, interview, gala, everyday…"></label>
+            <label class="field wide"><span>Describe the garment</span><textarea id="garment-notes" placeholder="Color, fabric, structure, beading, lining, vintage details, number of pieces…"></textarea></label>
+          </div>
+        </section>
+
+        <section class="panel" id="fit">
+          <div class="section-head"><div><p class="step">02 · Fit goals</p><h2>Point to the conversation, not the solution.</h2></div><p>Select what feels off or what you want to explore. The tailor still needs to see the garment on you before recommending work.</p></div>
+          <div class="concern-grid" id="concern-grid"></div>
+          <div class="choice-grid">
+            <label class="select-field"><span>Most important outcome</span><select id="priority"><option>Overall polished fit</option><option>Comfort and movement</option><option>Correct length and drape</option><option>Preserve original details</option><option>Event-day confidence</option><option>Not sure yet</option></select></label>
+            <label class="select-field"><span>Previous alteration history</span><select id="history"><option>Never altered</option><option>Altered elsewhere</option><option>Work already started</option><option>Vintage / history unknown</option><option>Not sure</option></select></label>
+            <label class="note-field wide"><span>What do you notice when you wear it?</span><textarea id="wear-notes" placeholder="Pulling, gaping, dragging, restricted movement, uneven drape, concern about a detail…"></textarea></label>
+          </div>
+        </section>
+
+        <section class="panel" id="prep">
+          <div class="section-head"><div><p class="step">03 · Appointment prep</p><h2>Build the bring-with-you list.</h2></div><p>Twelve Tailoring’s public guidance changes by garment. This checklist gives you a starting point without claiming the shop has approved the appointment.</p></div>
+          <div class="prep-layout">
+            <div class="bring-card"><div class="card-head"><p>Suggested bring list</p><span id="bring-count">0 ready</span></div><div id="bring-list"></div></div>
+            <div class="condition-card"><p class="card-label">Garment handoff notes</p>
+              <label><input type="checkbox" data-condition="Clean and ready to handle"><span>Clean and ready to handle</span></label>
+              <label><input type="checkbox" data-condition="Washed and dried as it will be worn"><span>Washed and dried as it will be worn</span></label>
+              <label><input type="checkbox" data-condition="Has beading, lace, leather, or delicate construction"><span>Beading, lace, leather, or delicate construction</span></label>
+              <label><input type="checkbox" data-condition="Has visible damage or a repair concern"><span>Visible damage or repair concern</span></label>
+              <label><input type="checkbox" data-condition="Includes multiple garments or separates"><span>Multiple garments or separates</span></label>
+              <label class="note-field inset"><span>Special handling or access note</span><textarea id="handling" placeholder="Garment bag, mobility need, private fitting, helper attending…"></textarea></label>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel" id="timeline">
+          <div class="section-head"><div><p class="step">04 · Visits & timing</p><h2>Map the dates you know.</h2></div><p>These are planning notes—not promised appointments, turnaround times, or pickup dates. Arrie’s team confirms the real sequence.</p></div>
+          <div class="timing-callout"><div><span>Conversation lane</span><strong id="timing-lane">Add the event date</strong></div><p id="timing-copy">The event date helps the shop understand urgency and whether a rush-service conversation may be needed.</p></div>
+          <div class="timeline-grid">
+            <label><span>Preferred first fitting</span><input id="first-fitting" type="date"><small>Not a reservation</small></label>
+            <label><span>Possible return fitting</span><input id="return-fitting" type="date"><small>Only if the tailor recommends it</small></label>
+            <label><span>Ideal pickup</span><input id="pickup" type="date"><small>Shop confirmation required</small></label>
+            <label><span>Event / wear date</span><input id="event-date-copy" type="date"><small>Synced with the event date above</small></label>
+          </div>
+          <div class="choice-grid">
+            <label class="select-field"><span>Fitting setting to discuss</span><select id="setting"><option>In-shop appointment</option><option>Private / after-hours fitting</option><option>On-site or concierge service</option><option>Wedding-party coordination</option><option>Not sure yet</option></select></label>
+            <label class="select-field"><span>Best contact route</span><select id="contact-route"><option>Email</option><option>Phone call</option><option>Text, if offered</option><option>No preference</option></select></label>
+            <label class="note-field wide"><span>Scheduling, pickup, or event-day question</span><textarea id="timeline-notes" placeholder="What still needs a human answer before you rely on the plan?"></textarea></label>
+          </div>
+        </section>
+
+        <section class="panel final-panel" id="brief">
+          <div class="section-head"><div><p class="step">05 · Ready for a tailor’s look</p><h2>Send one clean fitting brief.</h2></div><p>The brief organizes the first conversation. It does not authorize alterations or replace consultation, pinning, or fitting.</p></div>
+          <div class="final-actions"><button id="copy" type="button">Copy fitting brief</button><a id="email-link" href="#">Open in email <span>↗</span></a></div>
+          <div class="limits"><span>12</span><p><strong>What this does not do:</strong> assess fit, take measurements, diagnose garment construction, recommend an alteration, quote, promise timing, confirm availability, schedule a fitting, accept a garment, approve rush service, collect payment, or place an order.</p></div>
+        </section>
+      </section>
+
+      <aside class="brief-card">
+        <div class="brief-head"><p>Fitting brief</p><span>Live draft</span></div>
+        <div class="brief-title"><span class="seal">12</span><div><small>Prepared for</small><h3 id="brief-client">Your fitting</h3></div></div>
+        <dl><div><dt>Garment</dt><dd id="brief-garment">Bridal gown</dd></div><div><dt>Event</dt><dd id="brief-event">Still open</dd></div><div><dt>Timing</dt><dd id="brief-timing">Date needed</dd></div><div><dt>Priority</dt><dd id="brief-priority">Overall polished fit</dd></div></dl>
+        <div class="brief-section"><span>Fit conversations</span><div id="brief-concerns"></div></div>
+        <div class="brief-section"><span>Bring list</span><div id="brief-bring"></div></div>
+        <div class="boundary"><strong>Useful first pass</strong><p>Every measurement, recommendation, price, and date still needs the shop.</p></div>
+        <button class="primary" id="copy-side" type="button"><span>Copy full brief</span><b>Ready ↗</b></button>
+      </aside>
+    </div>
+
+    <footer><strong>Fitting Ready</strong><p>An independent working concept prepared for Twelve Tailoring. Final garment and fitting decisions belong with their team.</p></footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
