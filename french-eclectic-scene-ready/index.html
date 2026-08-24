@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Scene Ready — Event Flow & Load-In Planner</title>
+  <meta name="description" content="Turn a rental wishlist into a clearer event-flow and load-in conversation brief.">
+  <meta property="og:title" content="Scene Ready — Event Flow & Load-In Planner">
+  <meta property="og:description" content="Organize event zones, requested pieces, venue access, and open questions before the design and logistics handoff.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://trenn1x.github.io/specforge-analyst-studio/french-eclectic-scene-ready/">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar" id="top">
+    <a class="brand" href="#top" aria-label="Scene Ready home">
+      <span class="brand-mark" aria-hidden="true">SR</span>
+      <span>Scene Ready</span>
+    </a>
+    <div class="top-actions">
+      <button id="reset" type="button">Clear this plan</button>
+      <span>Independent concept · not commissioned or affiliated</span>
+    </div>
+  </header>
+
+  <main>
+    <section class="intro">
+      <div>
+        <p class="eyebrow">The French Eclectic · post-wishlist planner</p>
+        <h1>Turn favorite pieces into a scene the team can actually discuss.</h1>
+      </div>
+      <p>Map the event, rough zones, requested rentals, and load-in details into one useful starting brief. Every design, inventory, fit, price, and logistics decision still belongs with The French Eclectic.</p>
+    </section>
+
+    <div class="app-shell">
+      <div class="planner">
+        <section class="panel" id="event-frame">
+          <div class="section-head">
+            <div><p class="step">01 · Event frame</p><h2>Start with the room, not a fake quote.</h2></div>
+            <p>The public inquiry asks for the event, date, and venue. This adds the practical context that usually comes next.</p>
+          </div>
+
+          <div class="field-grid">
+            <label class="field">
+              <span>Event lane</span>
+              <select id="event-type">
+                <option value="">Choose one</option>
+                <option>Wedding or elopement</option>
+                <option>Private party</option>
+                <option>Corporate event</option>
+                <option>Festival, greenroom, or VIP</option>
+                <option>Photoshoot</option>
+                <option>Other event to discuss</option>
+              </select>
+            </label>
+            <label class="field">
+              <span>Expected guests</span>
+              <input id="guest-count" type="number" inputmode="numeric" min="1" step="1" placeholder="125">
+            </label>
+            <label class="field">
+              <span>Preferred date</span>
+              <input id="event-date" type="date">
+            </label>
+            <label class="field">
+              <span>Alternate date · optional</span>
+              <input id="alternate-date" type="date">
+            </label>
+            <label class="field full">
+              <span>Venue or property</span>
+              <input id="venue" maxlength="160" placeholder="Venue name or property for review">
+            </label>
+            <label class="field">
+              <span>City</span>
+              <input id="city" maxlength="80" placeholder="Charleston, North Charleston…">
+            </label>
+            <label class="field">
+              <span>Setting</span>
+              <select id="setting">
+                <option value="">Choose one</option>
+                <option>Indoor</option>
+                <option>Outdoor</option>
+                <option>Tented</option>
+                <option>Mixed indoor / outdoor</option>
+                <option>Still deciding</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="style-block">
+            <div><p class="mini-label">Public collection starting point</p><p>Pick a direction, not a promise that any specific piece is available.</p></div>
+            <div class="style-options" id="style-options">
+              <button type="button" data-style="Mod Glam">Mod Glam</button>
+              <button type="button" data-style="Color Addict">Color Addict</button>
+              <button type="button" data-style="Monsieur">Monsieur</button>
+              <button type="button" data-style="Neutrality">Neutrality</button>
+              <button type="button" data-style="Romantique">Romantique</button>
+              <button type="button" data-style="Global Motifs">Global Motifs</button>
+              <button type="button" data-style="Open to the team's ideas" class="selected">Open to ideas</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel" id="flow-builder">
+          <div class="section-head">
+            <div><p class="step">02 · Scene map</p><h2>Give every piece a job.</h2></div>
+            <p>Add rough event zones, then use the canvas or arrow keys to organize the flow. It is a conversation aid—not a fit, capacity, accessibility, egress, or code check.</p>
+          </div>
+
+          <div class="space-controls">
+            <label><span>Usable width · ft</span><input id="space-width" type="number" min="1" step="1" inputmode="decimal" placeholder="60"></label>
+            <label><span>Usable depth · ft</span><input id="space-depth" type="number" min="1" step="1" inputmode="decimal" placeholder="40"></label>
+            <label><span>What should guests notice first?</span><input id="first-impression" maxlength="180" placeholder="Statement bar, colorful lounge, welcome moment…"></label>
+          </div>
+
+          <fieldset class="zone-picker">
+            <legend>Add a zone</legend>
+            <div id="zone-buttons" class="zone-buttons">
+              <button type="button" data-zone="Ceremony">+ Ceremony</button>
+              <button type="button" data-zone="Lounge">+ Lounge</button>
+              <button type="button" data-zone="Bar">+ Bar</button>
+              <button type="button" data-zone="Dining">+ Dining</button>
+              <button type="button" data-zone="Welcome">+ Welcome</button>
+              <button type="button" data-zone="Greenroom">+ Greenroom</button>
+              <button type="button" data-zone="VIP">+ VIP</button>
+              <button type="button" data-zone="Activation">+ Activation</button>
+            </div>
+          </fieldset>
+
+          <div class="canvas-wrap">
+            <div class="canvas-head">
+              <div><p class="mini-label">Rough event canvas</p><h3 id="canvas-title">Add a zone to start the map</h3></div>
+              <span id="canvas-scale">Dimensions still open</span>
+            </div>
+            <div id="zone-canvas" class="zone-canvas" aria-label="Rough event-zone canvas" aria-describedby="canvas-help"></div>
+            <p id="canvas-help">Select a zone and use arrow keys to move it. Hold Shift for a larger nudge. Pointer dragging is optional.</p>
+            <p id="canvas-warning" class="canvas-warning" role="status" aria-live="polite">No layout warnings yet.</p>
+          </div>
+
+          <div id="zone-inspector" class="zone-inspector" hidden>
+            <div class="inspector-head"><div><p class="mini-label">Selected zone</p><h3 id="zone-name">Lounge</h3></div><button id="remove-zone" type="button">Remove zone</button></div>
+            <div class="field-grid compact">
+              <label class="field"><span>Zone width · ft</span><input id="zone-width" type="number" min="1" step="1" inputmode="decimal"></label>
+              <label class="field"><span>Zone depth · ft</span><input id="zone-depth" type="number" min="1" step="1" inputmode="decimal"></label>
+              <label class="field"><span>Desired capacity</span><input id="zone-capacity" type="number" min="1" step="1" inputmode="numeric" placeholder="20"></label>
+              <label class="field"><span>Priority</span><select id="zone-priority"><option>Must-have</option><option selected>Flexible</option><option>Optional</option></select></label>
+              <label class="field full"><span>Purpose or flow note</span><textarea id="zone-note" maxlength="280" placeholder="Conversation, cocktail queue, photo moment, quiet reset, sponsor visibility…"></textarea></label>
+            </div>
+            <div class="nudge-controls" aria-label="Move selected zone">
+              <button type="button" data-nudge="up">↑ Up</button>
+              <button type="button" data-nudge="left">← Left</button>
+              <button type="button" data-nudge="right">Right →</button>
+              <button type="button" data-nudge="down">Down ↓</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel" id="pieces">
+          <div class="section-head">
+            <div><p class="step">03 · Wishlist handoff</p><h2>Connect the favorite piece to the intended scene.</h2></div>
+            <p>Use official item names or paste product links. This planner never reads inventory, confirms availability, or treats a catalog price as a quote.</p>
+          </div>
+
+          <div class="piece-entry">
+            <label><span>Official item name</span><input id="piece-name" maxlength="110" placeholder="SAGE Crescent Moon Bar"></label>
+            <label><span>Quantity requested</span><input id="piece-quantity" type="number" min="1" step="1" inputmode="numeric" value="1"></label>
+            <label><span>Intended zone</span><select id="piece-zone"><option>Undecided</option></select></label>
+            <label><span>Official product URL · optional</span><input id="piece-url" type="url" maxlength="240" placeholder="https://www.thefrencheclectic.com/product-page/…"></label>
+            <button id="add-piece" type="button">Add requested piece</button>
+          </div>
+          <p id="piece-message" class="form-message" role="status" aria-live="polite">Nothing is reserved or submitted here.</p>
+          <div id="piece-list" class="piece-list"></div>
+          <a class="catalog-link" href="https://www.thefrencheclectic.com/rentals" target="_blank" rel="noopener">Browse the official rental collection <span>↗</span></a>
+        </section>
+
+        <section class="panel" id="load-in">
+          <div class="section-head">
+            <div><p class="step">04 · Load-in and handoff</p><h2>Surface the logistics before event week.</h2></div>
+            <p>Flag what the venue says—not what is feasible. The French Eclectic still confirms delivery, installation, access, timing, and any site requirements.</p>
+          </div>
+
+          <fieldset>
+            <legend>Venue and load-in details to discuss</legend>
+            <div class="check-grid">
+              <label><input type="checkbox" data-access="Loading dock or designated loading area"><span>Dock / loading area</span></label>
+              <label><input type="checkbox" data-access="Long carry from vehicle to event space"><span>Long carry</span></label>
+              <label><input type="checkbox" data-access="Stairs, elevator, gate, or narrow turn"><span>Stairs / elevator / gate</span></label>
+              <label><input type="checkbox" data-access="Grass, gravel, sand, curb, or uneven surface"><span>Surface / curb</span></label>
+              <label><input type="checkbox" data-access="Vehicle, parking, or delivery-hour restrictions"><span>Vehicle restrictions</span></label>
+              <label><input type="checkbox" data-access="COI or vendor paperwork may be required"><span>COI / paperwork</span></label>
+              <label><input type="checkbox" data-access="Floor protection or indoor handling rule"><span>Floor protection</span></label>
+              <label><input type="checkbox" data-access="Weather or rain plan still needs confirmation"><span>Weather plan</span></label>
+              <label><input type="checkbox" data-access="Power, hanging, noise, or décor restrictions"><span>Venue restrictions</span></label>
+            </div>
+          </fieldset>
+
+          <div class="field-grid">
+            <label class="field"><span>Setup access begins</span><input id="setup-time" type="time"></label>
+            <label class="field"><span>Guest arrival</span><input id="guest-time" type="time"></label>
+            <label class="field"><span>Strike / pickup can begin</span><input id="strike-time" type="time"></label>
+            <label class="field"><span>Venue contact · if known</span><input id="venue-contact" maxlength="120" placeholder="Name and best route"></label>
+            <label class="field full"><span>Access, rules, setup, or strike notes</span><textarea id="access-notes" maxlength="500" placeholder="Loading entrance, approximate walk, elevator size, floor protection, rain plan, vendor deadline…"></textarea></label>
+          </div>
+
+          <div class="field-grid contact-grid">
+            <label class="field"><span>Your name</span><input id="contact-name" maxlength="100" autocomplete="name" placeholder="Host or planner"></label>
+            <label class="field"><span>Your email</span><input id="contact-email" maxlength="180" type="email" autocomplete="email" placeholder="you@example.com"></label>
+            <label class="field"><span>Phone · optional</span><input id="contact-phone" maxlength="40" type="tel" autocomplete="tel" placeholder="(843) 555-0123"></label>
+            <label class="field"><span>Best reply route</span><select id="reply-route"><option>Email</option><option>Text, if offered</option><option>Phone call</option><option>No preference</option></select></label>
+            <label class="field full"><span>Most important question for the team</span><textarea id="final-question" maxlength="300" placeholder="What still needs a real answer before you rely on the plan?"></textarea></label>
+          </div>
+
+          <div class="boundary">
+            <strong>This prepares a design-and-operations conversation; it does not replace one.</strong>
+            <p>It does not read live inventory, reserve anything, hold a date, calculate price or labor, guarantee fit or capacity, check accessibility or code, approve a venue or load-in route, confirm delivery or installation, upload photos, collect payment, submit the brief on its own, or book an event.</p>
+          </div>
+        </section>
+      </div>
+
+      <aside class="summary" aria-label="Live Scene Ready brief">
+        <div class="summary-head">
+          <div><p class="mini-label">Live planning brief</p><h2 id="summary-title">Event scene still open</h2></div>
+          <span id="readiness" aria-label="Brief completeness">10%</span>
+        </div>
+
+        <dl class="summary-facts">
+          <div><dt>Event</dt><dd id="summary-event">Not chosen</dd></div>
+          <div><dt>Date</dt><dd id="summary-date">Still open</dd></div>
+          <div><dt>Venue</dt><dd id="summary-venue">Not provided</dd></div>
+          <div><dt>Style</dt><dd id="summary-style">Open to ideas</dd></div>
+        </dl>
+
+        <div class="summary-section">
+          <div class="summary-label"><span>Scene map</span><b id="summary-zone-count">0 zones</b></div>
+          <div id="summary-zones" class="summary-tags"></div>
+        </div>
+
+        <div class="summary-section">
+          <div class="summary-label"><span>Requested pieces</span><b id="summary-piece-count">0</b></div>
+          <div id="summary-pieces" class="summary-tags"></div>
+        </div>
+
+        <div class="open-card">
+          <span id="question-count">8</span>
+          <p><strong>questions still open</strong><small id="first-question">What kind of event is this?</small></p>
+        </div>
+
+        <details class="brief-preview">
+          <summary>Preview the full handoff brief</summary>
+          <pre id="brief-text"></pre>
+        </details>
+
+        <div class="summary-actions">
+          <button id="copy-brief" type="button">Copy full brief</button>
+          <a id="email-brief" href="#load-in" aria-disabled="true">Open compact email draft <span>↗</span></a>
+          <a class="official-contact" href="https://www.thefrencheclectic.com/contact" target="_blank" rel="noopener">Official inquiry form <span>↗</span></a>
+        </div>
+        <p class="action-note" id="action-note" role="status" aria-live="polite">Copy transfers the full brief to your clipboard. Email transfers a compact draft to your mail app. Neither action sends anything.</p>
+      </aside>
+    </div>
+  </main>
+
+  <footer>
+    <div><strong>Scene Ready</strong><span>Independent working concept for The French Eclectic; not commissioned or affiliated.</span></div>
+    <p>Details stay in this browser unless you copy them or open an email draft, which transfers them to your clipboard or mail app. Every rental, inventory, layout, fit, price, delivery, installation, venue, and booking decision belongs with The French Eclectic.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
