@@ -1,0 +1,17 @@
+node_modules/
+.next/
+out/
+coverage/
+.DS_Store
+*.log
+*.tsbuildinfo
+.env
+.env.local
+.venv/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+.terraform/
+*.tfstate
+*.tfstate.*
+crash.log
